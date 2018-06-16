@@ -19,11 +19,11 @@ class TestTransaction < MiniTest::Test
     result = @transaction.id()
     assert_equal(1, result)
   end
-  #
-  # def test_merchant_id()
-  #   result = @tag.name()
-  #   assert_equal("Travel", result)
-  # end
+
+   def test_merchant_id()
+    result = @transaction.merchant_id()
+    assert_equal(2, result)
+  end
   #
   # def test_tag_id()
   #   result = @tag.icon()
