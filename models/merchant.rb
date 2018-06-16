@@ -30,12 +30,12 @@ class Merchant
 
 
 
-    def self.all()
-      sql = "SELECT * FROM merchants"
-      merchants = SqlRunner.run( sql )
-      result = merchants.map { |merchant| Tag.new( merchant  ) }
-      return result
-    end
+  def self.all()
+    sql = "SELECT * FROM merchants"
+    merchants = SqlRunner.run( sql )
+    result = merchants.map { |merchant| Tag.new( merchant  ) }
+    return result
+  end
 
 
 
@@ -46,6 +46,16 @@ class Merchant
 
   end
 
+def self.find(id)
+  sql = "SELECT * FROM merchants WHERE id = $1"
+  values = [id]
+  merchant = SqlRunner.run( sql, values )
+  result = Merchant.new( merchant.first )
+  return result
+
+
+
+end
 
 
 end
