@@ -9,6 +9,7 @@ class Merchant
     @id = options['id'].to_i
     @name = options['name']
     @logo = options['logo']
+    @active = options['active']
 
 
 
