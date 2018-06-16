@@ -25,8 +25,20 @@ class Merchant
     merchant_data = SqlRunner.run(sql, values)
     @id = merchant_data.first()['id'].to_i
 
-
   end
+
+
+
+
+    def self.all()
+      sql = "SELECT * FROM merchants"
+      merchants = SqlRunner.run( sql )
+      result = merchants.map { |merchant| Tag.new( merchant  ) }
+      return result
+    end
+
+
+
 
   def self.delete_all()
     sql = "DELETE FROM merchants"
