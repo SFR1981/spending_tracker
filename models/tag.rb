@@ -3,7 +3,8 @@ require('emojis')
 
 class Tag
 
-  attr_reader :id, :name, :icon
+  attr_reader :id
+  attr_accessor :name, :icon
 
   def initialize( options )
     emojis = Emojis.new
@@ -24,6 +25,26 @@ class Tag
     @id = tag_data.first()['id'].to_i
   end
 
+  def delete()
+    sql = "DELETE FROM tags
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run( sql, values )
+
+  end
+
+  def update()
+    sql = "UPDATE tags SET (name, icon)
+     =
+    (
+      $1, $2
+    )
+    WHERE id = $3"
+    values = [@name, @icon, @id]
+    SqlRunner.run( sql, values )
+
+
+  end
 
 
 
