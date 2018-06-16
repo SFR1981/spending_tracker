@@ -17,4 +17,9 @@ class TestTag < MiniTest::Test
     assert_equal(1, result)
   end
 
+  def test_name()
+    result = @tag.name()
+    assert_equal("Travel", result)
+  end
+
 end
