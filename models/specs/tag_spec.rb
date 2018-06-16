@@ -5,8 +5,8 @@ require('emojis')
 class TestTag < MiniTest::Test
 
   def setup
-    emojis = Emojis.new
-    options = {"id" => 1, "name" => "Travel", "icon" => emojis[:airplane]}
+    @emojis = Emojis.new
+    options = {"id" => 1, "name" => "Travel", "icon" => @emojis[:airplane]}
 
 
     @tag = Tag.new(options)
@@ -20,6 +20,11 @@ class TestTag < MiniTest::Test
   def test_name()
     result = @tag.name()
     assert_equal("Travel", result)
+  end
+
+  def test_icon()
+    result = @tag.icon()
+    assert_equal(@emojis[:airplane], result)
   end
 
 end
