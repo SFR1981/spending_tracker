@@ -8,7 +8,7 @@ class Tag
 
   def initialize( options )
     emojis = Emojis.new
-    @id = options['id'].to_i
+    @id = options['id'].to_i if options['id']
     @name = options['name']
     @icon = options['icon']
   end

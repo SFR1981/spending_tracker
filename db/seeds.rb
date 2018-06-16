@@ -1,6 +1,6 @@
  require_relative('../models/tag')
  require_relative('../models/merchant')
-# require_relative('../models/')
+ require_relative('../models/transaction')
 require('pry')
 require('emojis') #i'm up to something
 @emojis = Emojis.new
@@ -18,8 +18,10 @@ tag1 = Tag.new({ "name" => "Travel", "icon" => @emojis[:airplane]})
 tag2 = Tag.new({ "name" => "Entertainment", "icon" => @emojis[:smiling_face_with_open_mouth_and_smiling_eyes]})
 tag1.save()
 tag2.save()
-#create new transactions
-#save
+
+transaction1 = Transaction.new({"id" => 1, "merchant_id" => merchant1.id, "tag_id" => tag1.id, "value" => 1299, "reference" => "train tickets"})
+
+transaction1.save()
 
 binding.pry
 nil
