@@ -37,7 +37,12 @@ class TestTransaction < MiniTest::Test
   end
 
   def test_reference()
+    assert_equal("train tickets", @transaction.reference())
 
+  end
+
+  def test_reference__where_null()
+    assert_nil(@no_reference_transaction.reference())
   end
 
 end
