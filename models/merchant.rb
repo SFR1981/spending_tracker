@@ -6,7 +6,7 @@ class Merchant
   attr_accessor :name, :logo, :active
 
   def initialize(options)
-    @id = options['id'].to_i
+    @id = options['id'].to_i if options['id']
     @name = options['name']
     @logo = options['logo']
     @active = options['active']
@@ -48,12 +48,12 @@ end
 
 
 
-  def self.all()
-    sql = "SELECT * FROM merchants"
-    merchants = SqlRunner.run( sql )
-    result = merchants.map { |merchant| Tag.new( merchant  ) }
-    return result
-  end
+def self.all()
+  sql = "SELECT * FROM merchants"
+  merchants = SqlRunner.run( sql )
+  result = merchants.map { |merchant| Tag.new( merchant  ) }
+  return result
+end
 
 
 
@@ -70,7 +70,6 @@ def self.find(id)
   merchant = SqlRunner.run( sql, values )
   result = Merchant.new( merchant.first )
   return result
-
 
 
 end
