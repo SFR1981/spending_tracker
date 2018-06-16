@@ -6,7 +6,7 @@ require('emojis') #i'm up to something
 @emojis = Emojis.new
 # Transaction.delete_all()
 # Merchant.delete_all()
-# Tag.delete_all()
+ Tag.delete_all()
 
 #create new merchants
 #save
