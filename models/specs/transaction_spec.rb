@@ -24,12 +24,12 @@ class TestTransaction < MiniTest::Test
     result = @transaction.merchant_id()
     assert_equal(2, result)
   end
-  #
-  # def test_tag_id()
-  #   result = @tag.icon()
-  #   assert_equal(@emojis[:airplane], result)
-  # end
-  #
+
+  def test_tag_id()
+    result = @transaction.tag_id()
+    assert_equal(3, result)
+  end
+
   #
   # def test_value()
   #
