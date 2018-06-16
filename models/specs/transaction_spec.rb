@@ -30,13 +30,14 @@ class TestTransaction < MiniTest::Test
     assert_equal(3, result)
   end
 
-  #
-  # def test_value()
-  #
-  # end
-  #
-  # def test_reference()
-  #
-  # end
+
+  def test_value()
+    assert_equal(12.99, @transaction.value())
+
+  end
+
+  def test_reference()
+
+  end
 
 end
