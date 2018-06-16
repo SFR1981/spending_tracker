@@ -25,4 +25,13 @@ class Tag
   end
 
 
+
+  def self.all()
+    sql = "SELECT * FROM tags"
+    tags = SqlRunner.run( sql )
+    result = tags.map { |tag| Tag.new( tag  ) }
+    return result
+  end
+
+
 end

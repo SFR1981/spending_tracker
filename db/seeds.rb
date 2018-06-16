@@ -12,7 +12,9 @@ require('emojis') #i'm up to something
 #save
 #create new tags
 tag1 = Tag.new({ "name" => "Travel", "icon" => @emojis[:airplane]})
+tag2 = Tag.new({ "name" => "Entertainment", "icon" => @emojis[:smiling_face_with_open_mouth_and_smiling_eyes]})
 tag1.save()
+tag2.save()
 #create new transactions
 #save
 
