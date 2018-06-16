@@ -1,5 +1,5 @@
  require_relative('../models/tag')
-# require_relative('../models/')
+ require_relative('../models/merchant')
 # require_relative('../models/')
 require('pry')
 require('emojis') #i'm up to something
@@ -9,6 +9,8 @@ require('emojis') #i'm up to something
  Tag.delete_all()
 
 #create new merchants
+merchant1 = Merchant.new({"id" => 1, "name" => "CDW", "logo" => "/images/1.png", "active" => true})
+merchant1.save()
 #save
 #create new tags
 tag1 = Tag.new({ "name" => "Travel", "icon" => @emojis[:airplane]})
