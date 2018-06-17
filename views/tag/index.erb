@@ -1,0 +1,16 @@
+<h1>Tags</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th>emoji</th>
+  </tr>
+  <% for tag in @tags %>
+  <tr>
+    <td><a href="/tags/<%= tag.id %>"><%= tag.name %></td>
+    <td>|</td>
+    <td><%= tag.icon %></a></td>
+  </tr>
+  <% end %>
+</table>
