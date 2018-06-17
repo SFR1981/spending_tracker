@@ -51,7 +51,7 @@ end
 def self.all()
   sql = "SELECT * FROM merchants"
   merchants = SqlRunner.run( sql )
-  result = merchants.map { |merchant| Tag.new( merchant  ) }
+  result = merchants.map { |merchant| Merchant.new( merchant  ) }
   return result
 end
 

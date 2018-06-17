@@ -7,10 +7,10 @@ class Tag
   attr_accessor :name, :icon
 
   def initialize( options )
-    emojis = Emojis.new
-    @id = options['id'].to_i if options['id']
+
+    @id = options['id'].to_i if options['id'] != nil 
     @name = options['name']
-    @icon = options['icon']
+    @icon = options['icon'] if options ['icon']
   end
 
 
