@@ -1,4 +1,5 @@
 require 'emojis'
+require_relative('../models/tag.rb')
 emo = Emojis.new
 emojis = {}
 
@@ -731,6 +732,14 @@ emojis = {}
 
 @emojis = emojis
 
-#@emojis.each_value
 
-p @emojis[:airplane]
+
+
+@emoji_array = []
+
+@emojis.each_value do |value|
+  @emoji_array << value
+end
+
+
+ p @emoji_array.nil?

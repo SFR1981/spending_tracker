@@ -733,4 +733,17 @@ emojis = {}
 
 #@emojis.each_value
 
-p @emojis[:airplane]
+
+@emoji_array = []
+# 
+# @emojis.each_value do |value|
+#   @emoji_array << value
+# end
+
+
+tag1 = Tag.new({ "name" => "Travel", "icon" => @emojis[:airplane]})
+
+tag1.icon = @emoji_array[0]
+
+
+p tag1.icon

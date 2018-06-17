@@ -3,6 +3,7 @@ require( 'sinatra/contrib/all')
 require( 'pry-byebug')
 require_relative( '../models/tag.rb')
 require_relative( './emojis.rb')
+require 'emojis'
 
 also_reload('./models*')
 
@@ -21,12 +22,15 @@ end
 
 get '/tags/new' do
 
- end
+erb ( :"tag/new")
+end
 
 
 
-# post '/tags' do
-#   @tag = Tag.new(params)
-#   @tag.save()
-#   erb ( :"tag/create" )
-# end
+
+
+post '/tags' do
+  @tag = Tag.new(params)
+  @tag.save()
+  erb ( :"tag/create" )
+end
