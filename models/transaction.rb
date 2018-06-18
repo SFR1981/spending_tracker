@@ -11,7 +11,6 @@ class Transaction
     @tag_id = options['tag_id']
     @value = options['value'].to_i
     @reference = options['reference'] if options['reference']
-
   end
 
 def save()
@@ -23,8 +22,6 @@ def save()
   values = [@merchant_id, @tag_id, @value, @reference]
   transaction_data = SqlRunner.run(sql, values)
   @id = transaction_data.first()['id'].to_i
-
-
 end
 
 def value_to_pounds()
@@ -73,6 +70,12 @@ def self.find(id)
 
 end
 
+def self.total_spend()
+sql = "SELECT SUM(value) FROM transactions"
+total = SqlRunner.run(sql)
+return "£#{total.first()["sum"].to_i() /100}"
+
+end
 
 
 

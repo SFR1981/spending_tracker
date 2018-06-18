@@ -1,7 +1,21 @@
 
 <% x = ["./images/logos/abstract.jpeg"] %>
 
+<input id="myURL" name="myURL" type="url"
+       list="defaultURLs">
 
+<form method= "post" action="/merchants/image">
+<input type="file" name="pic" accept="image/*">
+<input type="submit">
+</form>
+
+<datalist id="defaultURLs">
+  <option value="https://developer.mozilla.org/">
+  <option value="http://www.google.com/">
+  <option value="http://www.microsoft.com/">
+  <option value="https://www.mozilla.org/">
+  <option value="http://w3.org/">
+</datalist>
 <form method="post" action="/merchants">
   <label for="name">Name:</label>
   <input id="name" type ="text" name="name" required = "required"/>

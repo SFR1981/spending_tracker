@@ -22,6 +22,14 @@ post '/merchants' do
 
 end
 
+post '/merchants/image' do
+  tempfile = params['file'][:tempfile]
+  filename = params['file'][:filename]
+  File.copy(tempfile, "/images/logos/#{filename}")
+  redirect back
+
+end
+
 get '/merchants/:id' do
   @merchant = Merchant.find(params['id'].to_i)
   erb( :"merchant/show" )
