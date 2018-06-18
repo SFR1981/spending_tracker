@@ -12,7 +12,7 @@ require('emojis') #i'm up to something
  Merchant.delete_all()
 
 #create new merchants
-merchant1 = Merchant.new({"id" => 1, "name" => "CDW", "logo" => "/images/logos/1.png", "active" => true})
+merchant1 = Merchant.new({"id" => 1, "name" => "CDW", "logo" => "./images/logos/CDW.png", "active" => true})
 merchant1.save()
 #save
 #create new tags

@@ -1,4 +1,4 @@
-<h1>Merchants!!!</h1>
+<h1>Merchants</h1>
 
 <table>
   <tr>
@@ -12,8 +12,11 @@
   <tr>
     <td><a href="/merchants/<%= merchant.id %>"><%= merchant.name() %></td>
     <td>|</td>
-    <td> <img src="<%= merchant.logo %>" alt="<%=merchant.name()%>'s logo'"> </a></td>
+
+    <td> <img src="<%= merchant.logo %>" alt="<%=merchant.name()%>'s logo'">
+    </a></td>
   </tr>
+  
   <% end %>
  </table>
 <a href="/merchants/new">Create a new merchant</a> -->

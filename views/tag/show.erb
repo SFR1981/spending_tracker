@@ -1,1 +1,10 @@
 <h1><%= @tag.name %> <%= @tag.icon %> </h1>
+
+<h5><a href="/tags/<%= @tag.id()%>/edit">edit</a></h5>
+
+
+
+<form method="post" action="/tags/<%= @tag.id()%>/delete">
+
+<input type="submit" value="DELETE" />
+</form>

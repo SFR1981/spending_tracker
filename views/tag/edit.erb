@@ -1,0 +1,18 @@
+<% emo = Emojis.new %>
+
+<form method="post" action="/tags/<%= @tag.id %>">
+  <label for="name">Name:</label>
+  <input id="name" type ="text" name="name" required = "required" value="<%=@tag.name()%>"/>
+
+  <label for="tag-select">Select a Tag:</label>
+  <select id="tag-select" name="icon">
+    <option value=" "> None </option>
+    <option value="<%= emo[:beer_mug]  %>"> <%= emo[:beer_mug] %> </option>
+    <option value="<%= emo[:airplane]  %>"><%= emo[:airplane]  %></option>
+    <option value="<%= emo[:smiling_face_with_open_mouth]  %>"><%= emo[:smiling_face_with_open_mouth]  %></option>
+
+  </select>
+
+
+  <input type="submit" value="Edit Category" />
+</form>

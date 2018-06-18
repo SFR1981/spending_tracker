@@ -25,3 +25,23 @@ get '/tags/:id' do
   @tag = Tag.find(params['id'].to_i)
   erb( :"tag/show" )
 end
+
+#edit
+get '/tags/:id/edit' do
+  @tag = Tag.find(params[:id].to_i)
+  erb ( :"tag/edit" )
+end
+
+#post
+post '/tags/:id' do
+  @tag = Tag.new(params)
+  @tag.update()
+  erb( :"tag/update" )
+end
+
+#delete
+post '/tags/:id/delete' do
+  @tag = Tag.find(params[:id].to_i)
+  @tag.delete
+  redirect '/tags' #form posting to delete route
+end
