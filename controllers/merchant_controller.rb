@@ -12,6 +12,7 @@ get '/merchants' do
 end
 
 get '/merchants/new' do
+@logos = Dir["../public/images/logos/*"]
   erb( :"merchant/new")
 end
 
