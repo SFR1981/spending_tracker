@@ -11,11 +11,11 @@ get '/merchants' do
   erb( :"merchant/index" )
 end
 
+get '/merchants/new' do
+  erb( :"merchant/new")
+end
+
 get '/merchants/:id' do
   @merchant = Merchant.find(params['id'].to_i)
   erb( :"merchant/show" )
-end
-
-get '/merchants/new' do
-
 end
