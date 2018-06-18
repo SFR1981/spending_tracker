@@ -24,8 +24,10 @@ tag2.save()
 tag3.save()
 
 transaction1 = Transaction.new({"id" => 1, "merchant_id" => merchant1.id, "tag_id" => tag1.id, "value" => 1299, "reference" => "train tickets"})
+transaction2 = Transaction.new({"id" => 1, "merchant_id" => merchant1.id, "tag_id" => tag1.id, "value" => 1200, "reference" => "train tickets"})
 
 transaction1.save()
+transaction2.save()
 
 binding.pry
 nil

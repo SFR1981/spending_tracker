@@ -9,7 +9,7 @@ class Transaction
     @id = options['id'].to_i if options['id']
     @merchant_id = options['merchant_id']
     @tag_id = options['tag_id']
-    @value = options['value']
+    @value = options['value'].to_i
     @reference = options['reference'] if options['reference']
 
   end
@@ -27,6 +27,9 @@ def save()
 
 end
 
+def value_to_pounds()
+  return "£#{@value / 100.0}"
+end
 
 def delete()
   sql = "DELETE FROM transactions
@@ -45,9 +48,6 @@ def update()
   WHERE id = $5"
   values = [@merchant_id, @tag_id, @value, @reference, @id]
   SqlRunner.run( sql, values )
-
-
-
 end
 
 
