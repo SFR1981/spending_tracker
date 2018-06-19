@@ -1,12 +1,12 @@
 require("minitest/autorun")
 require_relative("../tag.rb")
-require('emojis')
+
 
 class TestTag < MiniTest::Test
 
   def setup
     @emojis = Emojis.new
-    options = {"id" => 1, "name" => "Travel", "icon" => @emojis[:airplane]}
+    options = {"id" => 1, "name" => "Travel"}
 
 
     @tag = Tag.new(options)
@@ -22,9 +22,6 @@ class TestTag < MiniTest::Test
     assert_equal("Travel", result)
   end
 
-  def test_icon()
-    result = @tag.icon()
-    assert_equal(@emojis[:airplane], result)
-  end
+
 
 end

@@ -23,6 +23,10 @@
     <td><%= transaction.value_to_pounds %></td>
     <td>|</td>
     <td><%= transaction.reference() %></a></td>
+    <td>
+
+    <a href="/transactions/<%= transaction.id %>/edit">Edit</a>
+</td>
   </tr>
   <% end %>
 </table>

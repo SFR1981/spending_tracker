@@ -27,26 +27,28 @@ post '/transactions' do
 end
 
 get '/transactions/:id' do
-  @tag = Tag.find(params['id'].to_i)
-  erb( :"tag/show" )
+  @transaction = Transaction.find(params['id'].to_i)
+  erb( :"transaction/show" )
 end
 
 #edit
 get '/transactions/:id/edit' do
-  @tag = Tag.find(params[:id].to_i)
-  erb ( :"tag/edit" )
+  @transaction = Transaction.find(params[:id].to_i)
+  @merchants = Merchant.all()
+  @tags = Tag.all()
+  erb ( :"transaction/edit" )
 end
 
 #post
 post '/transactions/:id' do
-  @tag = Tag.new(params)
-  @tag.update()
-  erb( :"tag/update" )
+  @transaction = Transaction.new(params)
+  @transaction.update()
+  erb( :"transaction/update" )
 end
 
 #delete
 post '/transactions/:id/delete' do
-  @tag = Tag.find(params[:id].to_i)
-  @tag.delete
-  redirect '/tags' #form posting to delete route
+  @transaction = Transaction.find(params[:id].to_i)
+  @transaction.delete
+  redirect '/transactions' #form posting to delete route
 end

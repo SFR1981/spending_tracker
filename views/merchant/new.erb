@@ -1,5 +1,5 @@
 
-<% x = ["./images/logos/abstract.jpeg"] %>
+<% x = ["/images/logos/abstract.jpeg"] %>
 
 
 
@@ -8,24 +8,19 @@
 <input type="submit" value="upload logo">
 </form>
 
-
-<datalist id="defaultURLs">
-  <option value="https://developer.mozilla.org/">
-  <option value="http://www.google.com/">
-  <option value="http://www.microsoft.com/">
-  <option value="https://www.mozilla.org/">
-  <option value="http://w3.org/">
-</datalist>
 <form method="post" action="/merchants">
   <label for="name">Name:</label>
   <input id="name" type ="text" name="name" required = "required"/>
 
   <label for="logo-select">Company Logo:</label>
   <select id="logo-select" name="logo">
-    <option value=" "> None </option>
-    <% x.each do |num| %>
-    <option value='<%= num %>'> <%=num.sub("./images/logos/","").chomp(".png").chomp(".jpeg")  %> </option>
-    <% end  %>
+    <datalist id="defaultURLs">
+      <option value="/images/logos/abstract.jpeg">default</option>
+      <option value="/images/logos/shield.png">shield</option>
+
+    </datalist>
+
+
 
 
 

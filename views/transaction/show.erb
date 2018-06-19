@@ -1,0 +1,21 @@
+<tr>
+  <td>
+
+<img src="..<%= Merchant.find(@transaction.merchant_id).logo() %>" alt="<%= Merchant.find(@transaction.merchant_id).name() %>" >
+<%= Merchant.find(@transaction.merchant_id).name() %>
+  </td>
+  <td>|</td>
+  <td><%= Tag.find(@transaction.tag_id).name() %></td>
+  <td>|</td>
+  <td><%= @transaction.value_to_pounds %></td>
+  <td>|</td>
+  <td><%= @transaction.reference() %></a></td>
+</tr>
+
+<a href="/transactions/<%= @transaction.id %>/edit">Edit</a>
+
+
+<form method="post" action="/transactions/<%= @transaction.id()%>/delete">
+
+<input type="submit" value="DELETE" />
+</form>

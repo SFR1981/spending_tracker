@@ -1,26 +1,24 @@
 require_relative('../db/sql_runner')
-require('emojis')
+
 
 class Tag
 
   attr_reader :id
-  attr_accessor :name, :icon
+  attr_accessor :name
 
   def initialize( options )
 
-    @id = options['id'].to_i if options['id'] != nil 
+    @id = options['id'].to_i if options['id'] != nil
     @name = options['name']
-    @icon = options['icon'] if options ['icon']
+
   end
 
 
   def save()
-    sql = "INSERT INTO tags(name, icon )        VALUES
-    (
-      $1, $2
-    )
+    sql = "INSERT INTO tags (name)  VALUES ($1)
+
     RETURNING *"
-    values = [@name, @icon]
+    values = [@name]
     tag_data = SqlRunner.run(sql, values)
     @id = tag_data.first()['id'].to_i
   end
@@ -33,13 +31,13 @@ def delete()
 end
 
   def update()
-    sql = "UPDATE tags SET (name, icon)
+    sql = "UPDATE tags SET name
      =
-    (
-      $1, $2
-    )
-    WHERE id = $3"
-    values = [@name, @icon, @id]
+
+      $1
+
+    WHERE id = $2"
+    values = [@name, @id]
     SqlRunner.run( sql, values )
 
 

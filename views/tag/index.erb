@@ -2,15 +2,13 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    
-    <th>emoji</th>
+    <th>Tags</th>
+
   </tr>
   <% for tag in @tags %>
   <tr>
     <td><a href="/tags/<%= tag.id %>"><%= tag.name %></td>
-    <td>|</td>
-    <td><%= tag.icon %></a></td>
+
   </tr>
   <% end %>
 </table>
