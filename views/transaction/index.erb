@@ -11,6 +11,25 @@
     <th>Reference</th>
   </tr>
   <% for transaction in @transactions %>
+  <% if transaction.merchant_id.nil?   %>
+  <tr>
+    <td>
+    <a href="/transactions/<%= transaction.id %>">
+  <img src="/images/logos/deleted.jpeg" alt="deleted" style="width:100%">
+  no longer trading
+    </td>
+    <td>|</td>
+    <td><%= Tag.find(transaction.tag_id).name() %></td>
+    <td>|</td>
+    <td><%= transaction.value_to_pounds %></td>
+    <td>|</td>
+    <td><%= transaction.reference() %></a></td>
+    <td>
+
+    <a href="/transactions/<%= transaction.id %>/edit">Edit</a>
+</td>
+  </tr>
+  <% else  %>
   <tr>
     <td>
     <a href="/transactions/<%= transaction.id %>">
@@ -29,4 +48,5 @@
 </td>
   </tr>
   <% end %>
+  <% end  %>
 </table>

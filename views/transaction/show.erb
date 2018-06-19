@@ -1,3 +1,28 @@
+<% if @transaction.merchant_id.nil?  %>
+<p> this merchant has been deleted </p>
+<tr>
+  <td>
+
+    <img src="/images/logos/deleted.jpeg" alt="deleted" style="width:100%">
+    no longer trading
+  </td>
+  <td>|</td>
+  <td><%= Tag.find(@transaction.tag_id).name() %></td>
+  <td>|</td>
+  <td><%= @transaction.value_to_pounds %></td>
+  <td>|</td>
+  <td><%= @transaction.reference() %></a></td>
+</tr>
+
+<a href="/transactions/<%= @transaction.id %>/edit">Edit</a>
+
+
+<form method="post" action="/transactions/<%= @transaction.id()%>/delete">
+
+<input type="submit" value="DELETE" />
+</form>
+
+<% else  %>
 <tr>
   <td>
 
@@ -19,3 +44,4 @@
 
 <input type="submit" value="DELETE" />
 </form>
+<%end   %>

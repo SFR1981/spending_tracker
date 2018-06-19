@@ -83,6 +83,14 @@ def transactions()
   result = transactions.map { |transaction| Transaction.new( transaction  ) }
 end
 
+def safe_delete()
+  transactions = self.transactions()
+  for transaction in transactions do
+    transaction.merchant_id = nil
+    transaction.update
+  end
+  self.delete()
+end
 
 
 

@@ -53,6 +53,6 @@ end
 
 post '/merchants/:id/delete' do
   @merchant = Merchant.find(params[:id].to_i)
-  @merchant.delete
+  @merchant.safe_delete
   redirect '/merchants' #form posting to delete route
 end
