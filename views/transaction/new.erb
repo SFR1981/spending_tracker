@@ -1,0 +1,21 @@
+GO ON , THROW IT AWAY! What are you, a millonaire?
+
+<form method="post" action="/transactions">
+<label for="merchant-select">Select a Merchant:</label>
+<select id="merchant-select" name="merchant_id">
+    <% for merchant in @merchants do  %>
+    <option value="<%= merchant.id  %>"> <%= merchant.name %> </option>
+    <% end  %>
+  </select>
+  <label for="tag-select">Select a Tag:</label>
+  <select id="tag-select" name="tag_id">
+    <% for tag in @tags do  %>
+    <option value="<%= tag.id  %>"> <%= tag.name %> </option>
+    <% end  %>
+  </select>
+  <label for="amount">Amount:</label>
+  <input id="name" type ="text" name="value" required = "required" placeholder="00.00"/>
+  <label for="amount">Reference:</label>
+  <input id="reference" type ="text" name="reference"/>
+  <input type="submit" value="Transaction complete" />
+</form>

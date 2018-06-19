@@ -23,11 +23,13 @@ post '/merchants' do
 end
 
 post '/merchants/image' do
-  tempfile = params['file'][:tempfile]
-  filename = params['file'][:filename]
-  File.copy(tempfile, "/images/logos/#{filename}")
-  redirect back
+  @filename = params[:file][:filename]
+  file = params[:file][:tempfile]
+  File.open("./public/images/logos/#{@filename}", 'wb') do |image|
+    image.write(file.read)
+  end
 
+  erb( :"merchant/image") 
 end
 
 get '/merchants/:id' do
@@ -37,7 +39,7 @@ end
 
 get '/merchants/:id/edit' do
   @merchant = Merchant.find(params[:id].to_i)
-  erb ( :"merchant/edit" )
+  erb( :"merchant/edit" )
 
 end
 #update

@@ -1,4 +1,4 @@
-<h1>Transactions</h1>  <h2 class=total> Total money you'll never see again:<%= Transaction.total_spend()  %></h2> 
+<h1>Transactions</h1>  <h2 class=total> Total money you'll never see again:<%= Transaction.total_spend()  %></h2>
 
 <table>
   <tr>
@@ -12,7 +12,11 @@
   </tr>
   <% for transaction in @transactions %>
   <tr>
-    <td><a href="/transactions/<%= transaction.id %>"><%= Merchant.find(transaction.merchant_id).name() %></td>
+    <td>
+    <a href="/transactions/<%= transaction.id %>">
+  <img src="<%= Merchant.find(transaction.merchant_id).logo() %>" alt="<%= Merchant.find(transaction.merchant_id).name() %>" style="width:100%">
+  <%= Merchant.find(transaction.merchant_id).name() %>
+    </td>
     <td>|</td>
     <td><%= Tag.find(transaction.tag_id).name() %></td>
     <td>|</td>

@@ -1,13 +1,13 @@
 
 <% x = ["./images/logos/abstract.jpeg"] %>
 
-<input id="myURL" name="myURL" type="url"
-       list="defaultURLs">
 
-<form method= "post" action="/merchants/image">
-<input type="file" name="pic" accept="image/*">
-<input type="submit">
+
+<form method= "post" action="/merchants/image" enctype="multipart/form-data">
+<input type="file" name="file" accept="image/*">
+<input type="submit" value="upload logo">
 </form>
+
 
 <datalist id="defaultURLs">
   <option value="https://developer.mozilla.org/">

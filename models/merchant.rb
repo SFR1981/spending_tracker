@@ -10,6 +10,7 @@ class Merchant
     @name = options['name']
     @logo = options['logo'] if options['logo']
     @active = options['active']
+    uploaded = false
 
 
 
@@ -73,6 +74,8 @@ def self.find(id)
 
 
 end
+
+
 
 
 end
