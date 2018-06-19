@@ -14,8 +14,13 @@ GO ON , THROW IT AWAY! What are you, a millonaire?
     <% end  %>
   </select>
   <label for="amount">Amount:</label>
-  <input id="name" type ="text" name="value" required = "required" placeholder="00.00"/>
+  <input id="value" type ="number" step="any" name="value" required = "required" placeholder="00.00"/>
   <label for="amount">Reference:</label>
   <input id="reference" type ="text" name="reference"/>
+<div class = hidden_time>
+  <label for="Time">Time:</label>
+  <input id="time_stamp" step="any" name="time_stamp" required = "required" value = "<%= Time.now  %>" /></div> 
+
+
   <input type="submit" value="Transaction complete" />
 </form>

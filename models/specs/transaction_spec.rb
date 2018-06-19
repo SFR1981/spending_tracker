@@ -46,20 +46,21 @@ class TestTransaction < MiniTest::Test
   def test_reference__where_null()
     assert_nil(@no_reference_transaction.reference())
   end
+  #
+  # def test_value_pounds__pounds_and_pence
+  #   result = @transaction.value_to_pounds()
+  #   assert_equal(12.99, result)
+  # end
+  #
+  # def test_value_to_pounds__pence
+  #   result = @no_reference_transaction.value_to_pounds()
+  #   assert_equal(99, result)
+  # end
+  #
+  # def test_value_to_pounds__string
+  #   result = @no_reference_transaction.value_to_pounds()
+  #   assert_equal(25.00, result)
+  # end
 
-  def test_value_pounds__pounds_and_pence
-    result = @transaction.value_to_pounds()
-    assert_equal(12.99, result)
-  end
-
-  def test_value_to_pounds__pence
-    result = @no_reference_transaction.value_to_pounds()
-    assert_equal(99, result)
-  end
-
-  def test_value_to_pounds__string
-    result = @no_reference_transaction.value_to_pounds()
-    assert_equal(25.00, result)
-  end
-
+end
 end

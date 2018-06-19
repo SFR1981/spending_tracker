@@ -9,8 +9,9 @@
   <!-- <link rel="stylesheet" href="/style.css"> -->
 </head>
 <header>
-<a href="/"><h1>Spendid </h1></a>  Total spendid : <%=Transaction.total_spend() %>
-</header>
+<a href="/"><h1>Spendid </h1></a> <a href="/transactions/new">Add transaction</a> Total spendid : £<%=Transaction.total_spend() %>
+
+ </header>
 <body>
 
   <hr>
@@ -26,5 +27,7 @@
   <%= yield %>
   </main
 </body>
+
+<footer></footer>
 
 </html>

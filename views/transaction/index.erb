@@ -1,4 +1,4 @@
-<h1>Transactions</h1>  <h2 class=total> Total money you'll never see again:<%= Transaction.total_spend()  %></h2>
+<h1>Transactions</h1>  <h2 class=total> Total money you'll never see again: £<%= Transaction.total_spend()  %></h2>
 
 <table>
   <tr>
@@ -9,6 +9,8 @@
     <th>Amount</th>
     <th></th>
     <th>Reference</th>
+    <th></th>
+    <th>time stamp</th>
   </tr>
   <% for transaction in @transactions %>
   <% if transaction.merchant_id.nil?   %>
@@ -36,6 +38,9 @@
     <td><%= transaction.value_to_pounds %></td>
     <td>|</td>
     <td><%= transaction.reference() %></a></td>
+    <td>
+    <td>|</td>
+    <td><%= transaction.time_stamp() %></a></td>
     <td>
 
     <a href="/transactions/<%= transaction.id %>/edit">Edit</a>

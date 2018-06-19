@@ -3,7 +3,7 @@ require_relative('../db/sql_runner')
 
 class Transaction
   attr_reader :id
-  attr_accessor :merchant_id, :tag_id, :value, :reference
+  attr_accessor :merchant_id, :tag_id, :value, :reference, :time_stamp
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -11,15 +11,16 @@ class Transaction
     @tag_id = options['tag_id']
     @value = options['value'].to_i
     @reference = options['reference'] if options['reference']
+    @time_stamp = options['time_stamp']
   end
 
 def save()
   sql = "INSERT INTO transactions
-  (merchant_id, tag_id, value, reference )
+  (merchant_id, tag_id, value, reference, time_stamp )
         VALUES
-  ( $1, $2, $3, $4 )
+  ( $1, $2, $3, $4, $5 )
   RETURNING *"
-  values = [@merchant_id, @tag_id, @value, @reference]
+  values = [@merchant_id, @tag_id, @value, @reference, @time_stamp]
   transaction_data = SqlRunner.run(sql, values)
   @id = transaction_data.first()['id'].to_i
 end
@@ -37,13 +38,13 @@ def delete()
 end
 
 def update()
-  sql = "UPDATE transactions SET (merchant_id, tag_id, value, reference)
+  sql = "UPDATE transactions SET (merchant_id, tag_id, value, reference, time_stamp)
    =
   (
-    $1, $2, $3, $4
+    $1, $2, $3, $4, $5
   )
-  WHERE id = $5"
-  values = [@merchant_id, @tag_id, @value, @reference, @id]
+  WHERE id = $6"
+  values = [@merchant_id, @tag_id, @value, @reference, @time_stamp, @id]
   SqlRunner.run( sql, values )
 end
 
@@ -73,10 +74,27 @@ end
 def self.total_spend()
 sql = "SELECT SUM(value) FROM transactions"
 total = SqlRunner.run(sql)
-return "£#{total.first()["sum"].to_i() /100}"
+number = total.first()["sum"].to_f() / 100
+return number.round(2)
 
 end
 
+def self.order_by_newest
+sql = "SELECT * FROM transactions ORDER BY time_stamp DESC"
+most_recent = SqlRunner.run(sql)
+result = most_recent.map { |transaction| Transaction.new( transaction  ) }
+return result
+
+end
+
+
+def self.order_by_oldest
+sql = "SELECT * FROM transactions ORDER BY time_stamp"
+oldest = SqlRunner.run(sql)
+result = oldest.map { |transaction| Transaction.new( transaction  ) }
+return result
+
+end
 
 
 end

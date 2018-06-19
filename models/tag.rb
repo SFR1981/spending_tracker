@@ -74,6 +74,28 @@ def transactions
 
 end
 
+ def total_spend
+
+total_value = 0
+for transaction in self.transactions
+  total_value += transaction.value()
+end
+  return total_value
+end
+#
+
+def percentage_of_spending
+  total = Transaction.total_spend().to_i
+  for_this_tag = self.total_spend().to_i
+  percentage = ( for_this_tag * 100.0 )/ total
+  return percentage.round(2)
+
+end
+#
+#
+# def total as percentage of all spending
+#
+
 def safe_delete
   transactions = self.transactions()
   for transaction in transactions do

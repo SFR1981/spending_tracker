@@ -4,11 +4,12 @@ require( 'pry-byebug')
 require_relative( '../models/transaction.rb')
 require_relative( '../models/merchant.rb')
 require_relative( '../models/tag.rb')
+require_relative( '../models/money_handler.rb')
 also_reload('../models*')
 
 get '/transactions' do
-  @transactions = Transaction.all()
-  #@total_spend = Transaction.total_spend()
+  @transactions = Transaction.order_by_newest()
+  
   erb ( :"transaction/index" )
 end
 
@@ -21,6 +22,7 @@ get '/transactions/new' do
 end
 
 post '/transactions' do
+  params['value'] = MoneyHandler.check_decimal(params['value'])
   @transaction = Transaction.new(params)
   @transaction.save()
   erb( :"transaction/create" )
@@ -50,5 +52,5 @@ end
 post '/transactions/:id/delete' do
   @transaction = Transaction.find(params[:id].to_i)
   @transaction.delete
-  redirect '/transactions' 
+  redirect '/transactions'
 end
