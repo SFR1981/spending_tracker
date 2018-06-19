@@ -6,8 +6,8 @@ class TestTransaction < MiniTest::Test
 
   def setup
 
-    options = {"id" => 1, "merchant_id" => 2, "tag_id" => 3, "value" => 1299, "reference" => "train tickets"}
-    options2 = {"id" => 1, "merchant_id" => 2, "tag_id" => 3, "value" => 99}
+    options = {"id" => 1, "merchant_id" => 2, "tag_id" => 3, "value" => "1299", "reference" => "train tickets"}
+    options2 = {"id" => 1, "merchant_id" => 2, "tag_id" => 3, "value" => "99"}
     options3 = {"id" => 1, "merchant_id" => 2, "tag_id" => 3, "value" => "2500"}
 
 
