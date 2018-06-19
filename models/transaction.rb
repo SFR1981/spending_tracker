@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require('time')
 
 
 class Transaction
@@ -35,6 +36,10 @@ def delete()
   values = [@id]
   SqlRunner.run( sql, values )
 
+end
+
+def time()
+  Time.parse(@time_stamp)
 end
 
 def update()
@@ -88,13 +93,37 @@ return result
 end
 
 
-def self.order_by_oldest
+def self.order_by_oldest()
 sql = "SELECT * FROM transactions ORDER BY time_stamp"
 oldest = SqlRunner.run(sql)
 result = oldest.map { |transaction| Transaction.new( transaction  ) }
 return result
-
 end
+
+def self.last_24()
+  sql = "select * from transactions where DATE(time_stamp) = DATE(NOW())"
+  today = SqlRunner.run(sql)
+  result = today.map { |transaction| Transaction.new( transaction  ) }
+  return result
+end
+
+def self.last_week()
+  a_week_ago = Time.now() - (60*60*24*7)
+  sql = "SELECT * FROM transactions ORDER BY time_stamp"
+  oldest = SqlRunner.run(sql)
+  result = oldest.map { |transaction| Transaction.new( transaction )if Time.parse(transaction["time_stamp"]) > a_week_ago }
+  return result.compact
+end
+
+def self.last_month()
+  a_month_ago = Time.now() - (60*60*24*7*4)
+  sql = "SELECT * FROM transactions ORDER BY time_stamp"
+  oldest = SqlRunner.run(sql)
+  result = oldest.map { |transaction| Transaction.new( transaction )if Time.parse(transaction["time_stamp"]) > a_month_ago }
+  return result.compact
+end
+
+
 
 
 end

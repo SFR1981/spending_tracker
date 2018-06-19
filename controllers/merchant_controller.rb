@@ -23,7 +23,6 @@ post '/merchants' do
 end
 
 post '/merchants/image' do
-  redirect back if params[:file][:filename] == nil?
   @filename = params[:file][:filename]
   file = params[:file][:tempfile]
   File.open("./public/images/logos/#{@filename}", 'wb') do |image|

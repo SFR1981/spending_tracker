@@ -41,13 +41,15 @@ tag3.save()
 tag4.save()
 tag5.save()
 
-transaction1 = Transaction.new({"id" => 1, "merchant_id" => merchant4.id, "tag_id" => tag1.id, "value" => "1299", "reference" => "train tickets", "time_stamp" => '2017-03-11 12:30:02'})
+transaction1 = Transaction.new({"id" => 1, "merchant_id" => merchant4.id, "tag_id" => tag1.id, "value" => "1299", "reference" => "train tickets", "time_stamp" => '2018-05-27 12:30:02'})
 transaction2 = Transaction.new({"id" => 2, "merchant_id" => merchant2.id, "tag_id" => tag2.id, "value" => "12301", "reference" => "train tickets", "time_stamp" => '2018-01-19 14:39:07'})
-transaction3 = Transaction.new({"id" => 3, "merchant_id" => merchant5.id, "tag_id" => tag2.id, "value" => "500", "reference" => "partying", "time_stamp" => "#{Time.now}"})
+transaction3 = Transaction.new({"id" => 3, "merchant_id" => merchant5.id, "tag_id" => tag4.id, "value" => "500", "reference" => "partying", "time_stamp" => "#{Time.now}"})
+transaction4 = Transaction.new({"id" => 3, "merchant_id" => merchant5.id, "tag_id" => tag4.id, "value" => "500", "reference" => "tidying", "time_stamp" => "2018-06-15 22:19:54"})
 
 transaction1.save()
 transaction2.save()
 transaction3.save()
+transaction4.save()
 
 binding.pry
 nil
