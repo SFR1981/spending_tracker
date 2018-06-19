@@ -24,11 +24,15 @@ merchant5 = Merchant.new({"id" => 5, "name" => "McDonalds", "logo" => "/images/l
 merchant5.save()
 #save
 
-tag1 = Tag.new({ "name" => "Travel"})
+tag1 = Tag.new({ "name" => "None"})
 tag2 = Tag.new({ "name" => "Entertainment"})
-tag3 = Tag.new({ "name" => "Drinks"})
-tag4 = Tag.new({ "name" => "none"})
-tag5 = Tag.new({ "name" => "hobby"})
+tag3 = Tag.new({ "name" => "Alcohol"})
+tag4 = Tag.new({ "name" => "Groceries"})
+tag5 = Tag.new({ "name" => "Hobby"})
+tag6 = Tag.new({ "name" => "Charity"})
+tag7 = Tag.new({ "name" => "Smoking"})
+tag8 = Tag.new({ "name" => "Tech"})
+
 
 
 tag1.save()

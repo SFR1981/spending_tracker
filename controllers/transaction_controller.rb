@@ -9,8 +9,17 @@ also_reload('../models*')
 
 get '/transactions' do
   @transactions = Transaction.order_by_newest()
-  
+
+
   erb ( :"transaction/index" )
+end
+
+
+get '/transactions/oldest_first' do
+  @transactions = Transaction.order_by_oldest()
+
+  erb ( :"transaction/oldest_first" )
+
 end
 
 
@@ -20,6 +29,7 @@ get '/transactions/new' do
   @merchants = Merchant.all()
   erb( :"transaction/new")
 end
+
 
 post '/transactions' do
   params['value'] = MoneyHandler.check_decimal(params['value'])
