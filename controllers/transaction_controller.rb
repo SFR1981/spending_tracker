@@ -50,5 +50,5 @@ end
 post '/transactions/:id/delete' do
   @transaction = Transaction.find(params[:id].to_i)
   @transaction.delete
-  redirect '/transactions' #form posting to delete route
+  redirect '/transactions' 
 end
