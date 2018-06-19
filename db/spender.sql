@@ -21,5 +21,6 @@ CREATE TABLE transactions (
   merchant_id int4 REFERENCES merchants(id) ON DELETE CASCADE ,
   tag_id int4 REFERENCES tags(id) ON DELETE CASCADE,
   value int4,
-  reference varchar(255)
+  reference varchar(255),
+  time_stamp timestamp
 );
