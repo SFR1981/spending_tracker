@@ -66,5 +66,12 @@ end
 
   end
 
+def transactions
+  sql = "SELECT transactions.* FROM transactions INNER JOIN tags ON transactions.tag_id = tags.id WHERE tags.id = $1"
+  values= [@id]
+  transactions = SqlRunner.run(sql, values)
+  result = transactions.map { |transaction| Transaction.new( transaction  ) }
+
+end
 
 end

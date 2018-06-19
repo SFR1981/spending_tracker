@@ -13,7 +13,7 @@ CREATE TABLE merchants (
 
 CREATE TABLE tags (
   id serial4 primary key,
-  name varchar(255)  
+  name varchar(255)
 );
 
 CREATE TABLE transactions (
