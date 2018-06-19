@@ -74,4 +74,14 @@ def transactions
 
 end
 
+def safe_delete
+  transactions = self.transactions()
+  for transaction in transactions do
+    transaction.tag_id = nil
+    transaction.update
+  end
+  self.delete()
+
+end
+
 end

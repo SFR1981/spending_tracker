@@ -42,6 +42,6 @@ end
 #delete
 post '/tags/:id/delete' do
   @tag = Tag.find(params[:id].to_i)
-  @tag.delete
+  @tag.safe_delete
   redirect '/tags' #form posting to delete route
 end

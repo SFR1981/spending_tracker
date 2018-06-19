@@ -1,51 +1,22 @@
 <p>You are editing ;</p>
+
 <% if @transaction.merchant_id.nil?%>
 
 <img src="/images/logos/deleted.jpeg" alt="deleted" style="width:100%">
 no longer trading
-  </td>
-  <td>|</td>
-  <td><%= Tag.find(@transaction.tag_id).name() %></td>
-  <td>|</td>
-  <td><%= @transaction.value_to_pounds %></td>
-  <td>|</td>
-  <td><%= @transaction.reference() %></a></td>
-</tr>
 
-<form method="post" action="/transactions/<%=@transaction.id()%>">
-<label for="merchant-select">Edit merchant:</label>
-<select id="merchant-select" name="merchant_id">
-    <% for merchant in @merchants do  %>
-    <option value="<%= merchant.id  %>"><%= merchant.name %> </option>
-    <% end  %>
-  </select>
-  <label for="tag-select">Edit tag:</label>
-  <select id="tag-select" name="tag_id">
-    <% for tag in @tags do  %>
-
-    <option value="<%= tag.id  %>" selected="<%= "selected" if @transaction.tag_id == tag.id()  %>">  <%= tag.name %> </option>
-    <% end  %>
-  </select>
-  <label for="amount">edit amount:</label>
-  <input id="name" type ="text" name="value" required = "required" placeholder="<%= @transaction.value_to_pounds.sub("£","")  %>"/>
-  <label for="amount">edit reference:</label>
-  <input id="reference" type ="text" name="reference" placeholder="<%= @transaction.reference()%>"/>
-  <input type="submit" value="confirm changes" />
-</form>
-
-
-<form method="post" action="/transactions/<%= @transaction.id()%>/delete">
-
-<input type="submit" value="DELETE" />
-</form>
-
-<% else  %>
+  <% else  %>
 
 <img src="<%= Merchant.find(@transaction.merchant_id).logo() %>" alt="<%= Merchant.find(@transaction.merchant_id).name() %>" >
 <%= Merchant.find(@transaction.merchant_id).name() %>
+<% end  %>
   </td>
   <td>|</td>
+  <% if @transaction.tag_id.nil?  %>
+  <td> no tag applied</td>
+    <% else  %>
   <td><%= Tag.find(@transaction.tag_id).name() %></td>
+    <% end  %>
   <td>|</td>
   <td><%= @transaction.value_to_pounds %></td>
   <td>|</td>
@@ -78,4 +49,3 @@ no longer trading
 
 <input type="submit" value="DELETE" />
 </form>
-<% end  %>

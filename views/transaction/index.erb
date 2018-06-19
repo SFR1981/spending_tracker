@@ -17,27 +17,21 @@
     <a href="/transactions/<%= transaction.id %>">
   <img src="/images/logos/deleted.jpeg" alt="deleted" style="width:100%">
   no longer trading
-    </td>
-    <td>|</td>
-    <td><%= Tag.find(transaction.tag_id).name() %></td>
-    <td>|</td>
-    <td><%= transaction.value_to_pounds %></td>
-    <td>|</td>
-    <td><%= transaction.reference() %></a></td>
-    <td>
 
-    <a href="/transactions/<%= transaction.id %>/edit">Edit</a>
-</td>
-  </tr>
   <% else  %>
   <tr>
     <td>
     <a href="/transactions/<%= transaction.id %>">
   <img src="<%= Merchant.find(transaction.merchant_id).logo() %>" alt="<%= Merchant.find(transaction.merchant_id).name() %>" style="width:100%">
   <%= Merchant.find(transaction.merchant_id).name() %>
+  <% end  %>
     </td>
     <td>|</td>
+    <% if transaction.tag_id.nil?   %>
+    <td> no tag applied </td>
+    <% else  %>
     <td><%= Tag.find(transaction.tag_id).name() %></td>
+    <% end  %>
     <td>|</td>
     <td><%= transaction.value_to_pounds %></td>
     <td>|</td>
@@ -47,6 +41,6 @@
     <a href="/transactions/<%= transaction.id %>/edit">Edit</a>
 </td>
   </tr>
-  <% end %>
   <% end  %>
+
 </table>
