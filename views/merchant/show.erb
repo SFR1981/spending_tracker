@@ -7,3 +7,39 @@
 
   <input type="submit" value="DELETE" />
 </form>
+
+
+
+<hr>
+<h5> Transactions for this merchant </h5>
+
+<table>
+  <tr>
+    <th>Merchant</th>
+    <th></th>
+    <th>Tag</th>
+    <th></th>
+    <th>Amount</th>
+    <th></th>
+    <th>Reference</th>
+  </tr>
+  <% for transaction in @transactions %>
+  <tr>
+    <td>
+    <a href="/transactions/<%= transaction.id %>">
+  <img src="<%= Merchant.find(transaction.merchant_id).logo() %>" alt="<%= Merchant.find(transaction.merchant_id).name() %>" style="width:100%">
+  <%= Merchant.find(transaction.merchant_id).name() %>
+    </td>
+    <td>|</td>
+    <td><%= Tag.find(transaction.tag_id).name() %></td>
+    <td>|</td>
+    <td><%= transaction.value_to_pounds %></td>
+    <td>|</td>
+    <td><%= transaction.reference() %></a></td>
+    <td>
+
+    <a href="/transactions/<%= transaction.id %>/edit">Edit</a>
+</td>
+  </tr>
+  <% end %>
+</table>

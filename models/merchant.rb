@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require_relative('./transaction.rb')
 
 
 class Merchant
@@ -73,6 +74,13 @@ def self.find(id)
   return result
 
 
+end
+
+def transactions()
+  sql = "SELECT transactions.* FROM transactions INNER JOIN merchants ON transactions.merchant_id = merchants.id WHERE merchants.id = $1"
+  values= [@id]
+  transactions = SqlRunner.run(sql, values)
+  result = transactions.map { |transaction| Transaction.new( transaction  ) }
 end
 
 

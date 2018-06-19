@@ -29,11 +29,12 @@ post '/merchants/image' do
     image.write(file.read)
   end
 
-  erb( :"merchant/image") 
+  erb( :"merchant/image")
 end
 
 get '/merchants/:id' do
   @merchant = Merchant.find(params['id'].to_i)
+  @transactions = @merchant.transactions()
   erb( :"merchant/show" )
 end
 
