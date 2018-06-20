@@ -88,7 +88,7 @@ end
 def percentage_of_spending
   total = Transaction.total_spend().to_i
   for_this_tag = self.total_spend().to_i
-  percentage = ( for_this_tag * 100.0 )/ total
+  percentage = ( for_this_tag  )/ total
   return percentage.round(2)
 
 end
@@ -100,7 +100,7 @@ sql = "SELECT tag_id, sum(value) AS amount from transactions group by tag_id"
 values = SqlRunner.run(sql)
 @results = values.map { |tag_stats| TagStats.new( tag_stats ) }
 
-end
+
 
 end
 

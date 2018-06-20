@@ -44,6 +44,11 @@ get '/transactions/last_month' do
 
 end
 
+get '/transactions/tags' do
+  @tags = Tag.by_tag()
+
+  erb ( :"transaction/tags")
+end
 
 
 

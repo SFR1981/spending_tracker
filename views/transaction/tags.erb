@@ -1,0 +1,31 @@
+<h1>Transactions by tag</h1>  <h2 class=total> Yesterday : <%= Transaction.total_spend()  %></h2>
+<a href="/transactions">All newest first </a>
+
+<table>
+  <tr>
+    <th>Tag</th>
+    <th></th>
+    <th>Amount</th>
+    <th></th>
+    <th>%</th>
+    </tr>
+  <% for tag in @tags %>
+
+  <tr>
+    <td>
+    <a href="/tags/<%= tag.tag_id %>">
+  <%= Tag.find(tag.tag_id).name  %>
+
+    </td>
+    <td>|</td>
+    <td><%= tag.amount() %></td>
+
+    <td>|</td>
+    <td><%= Tag.find(tag.tag_id).percentage_of_spending%></td>
+
+    <% end   %>
+
+
+
+
+</table>

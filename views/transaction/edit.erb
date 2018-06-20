@@ -27,22 +27,26 @@ no longer trading
 <label for="merchant-select">Edit merchant:</label>
 <select id="merchant-select" name="merchant_id">
     <% for merchant in @merchants do  %>
-    <option value="<%= merchant.id  %>"><% "selected" if @transaction.merchant_id() == merchant.id() %> <%= merchant.name %> </option>
+    <option value="<%= merchant.id  %>" selected= " if <%@transaction.merchant_id() == merchant.id() %>"> <%= merchant.name %> </option>
     <% end  %>
   </select>
+
   <label for="tag-select">Edit tag:</label>
   <select id="tag-select" name="tag_id">
     <% for tag in @tags do  %>
 
-    <option value="<%= tag.id  %>" selected="<%= "selected" if @transaction.tag_id == tag.id()  %>">  <%= tag.name %> </option>
+    <option value="<%= tag.id  %>" selected= " <%=tag.name if @transaction.tag_id == tag.id()  %>">  <%= tag.name %> </option>
     <% end  %>
   </select>
+
   <label for="amount">edit amount:</label>
-  <input id="name" type ="text" name="value" required = "required" placeholder="<%= @transaction.value_to_pounds.sub("£","")  %>"/>
+  <input id="name" type ="text" name="value" required = "required" value = "<%=  @transaction.value_to_pounds%>" placeholder="<%= @transaction.value_to_pounds.sub("£","")  %>"/>
+
   <label for="amount">edit reference:</label>
-  <input id="reference" type ="text" name="reference" placeholder="<%= @transaction.reference()%>"/>
+  <input id="reference" type ="text" value = "<%= @transaction.reference() %>" name="reference" placeholder="<%= @transaction.reference()%>"/>
+
   <label for="Time">Time:</label>
-  <input id="time_stamp" step="any" type=datetime-local name="time_stamp" required = "required" value = "<%= @transaction.time_stamp %>" /></div> 
+  <input id="time_stamp" step="any"  name="time_stamp" value = "<%= @transaction.time_stamp %>"  placeholder="<% @transaction.time_stamp  %>"/></div>
   <input type="submit" value="confirm changes" />
 </form>
 
