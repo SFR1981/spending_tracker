@@ -92,6 +92,13 @@ return result
 
 end
 
+def self.order_by_highest()
+sql = "SELECT * FROM transactions ORDER BY value desc"
+highest = SqlRunner.run(sql)
+result = highest.map { |transaction| Transaction.new( transaction  ) }
+return result
+end
+
 
 def self.order_by_oldest()
 sql = "SELECT * FROM transactions ORDER BY time_stamp"

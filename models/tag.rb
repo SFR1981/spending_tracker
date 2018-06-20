@@ -74,7 +74,7 @@ def transactions
 
 end
 
- def total_spend
+def total_spend
 
 total_value = 0
 for transaction in self.transactions
@@ -91,10 +91,7 @@ def percentage_of_spending
   return percentage.round(2)
 
 end
-#
-#
-# def total as percentage of all spending
-#
+
 
 def safe_delete
   transactions = self.transactions()
@@ -105,5 +102,7 @@ def safe_delete
   self.delete()
 
 end
+
+ 
 
 end
