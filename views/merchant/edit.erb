@@ -1,44 +1,37 @@
 
 <h1>edit</h1>
 
-
+<label for="logo-select">Change Logo:</label>
+  <select id="logo-select" name="logo">
+    <datalist id="defaultURLs">
+      <option value= "<%= @merchant.logo  %>" selected> keep same </option>
+      <option value="/images/logos/abstract.jpeg">default</option>
+      <option value="/images/logos/shield.png">shield</option>
+      <option value="/images/logos/pub.jpeg">pub</option>
+      <option value="/images/logos/amazon.png">amazon</option>
+      <option value="/images/logos/tesco.png">tesco</option>
+    </datalist>
+  </select>
+<p>or</p>
+<label for="image edit"> Choose a new image </label>
   <form method= "post" action="/merchants/<%=@merchant.id  %>/edit_image" enctype="multipart/form-data">
-  <input type="file" name="file" accept="image/*">
+  <input  type="file" name="file" value= "<%= @merchant.logo  %>" accept="image/*">
   <input type="submit" value="upload logo">
   </form>
+
+  <p>or</p>
 
 
 <form method="post" action="/merchants/<%= @merchant.id %>/">
   <label for="name">Name:</label>
   <input id="name" type ="text" name="name" required = "required" value = "<%= @merchant.name %>">
 
-    <form method= "post" action="/merchants/edit_image" enctype="multipart/form-data">
-    <input type="file" name="file" accept="image/*">
-    <input type="submit" value="upload logo">
-    </form>
-
-    <p>or</p>
-
-  <label for="logo-select">Company Logo:</label>
-    <select id="logo-select" name="logo">
-      <datalist id="defaultURLs">
-        <option value="/images/logos/abstract.jpeg">default</option>
-        <option value="/images/logos/shield.png">shield</option>
-        <option value="/images/logos/pub.jpeg">pub</option>
-        <option value="/images/logos/amazon.png">amazon</option>
-        <option value="/images/logos/tesco.png">tesco</option>
-      </datalist>
 
 
-
-
-
-
-  </select>
 
 
   <input type="submit" value="Edit Merchant" />
 </form>
 
 
-<img src="<%= @merchant.logo.sub(".", "")%>" alt="">
+<img src="<%= @merchant.logo() %>" alt="">
