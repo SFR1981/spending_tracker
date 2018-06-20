@@ -100,6 +100,7 @@ return result
 end
 
 
+
 def self.order_by_oldest()
 sql = "SELECT * FROM transactions ORDER BY time_stamp"
 oldest = SqlRunner.run(sql)
@@ -107,11 +108,20 @@ result = oldest.map { |transaction| Transaction.new( transaction  ) }
 return result
 end
 
-def self.last_24()
+def self.yesterday()
   sql = "select * from transactions where DATE(time_stamp) = DATE(NOW())"
   today = SqlRunner.run(sql)
   result = today.map { |transaction| Transaction.new( transaction  ) }
   return result
+end
+
+def self.yesterday_total()
+  total = 0
+    for transaction in self.yesterday()
+      total += transaction.value()
+    end
+    number = (total.to_f() / 100).round(2)
+    return "£#{number}"
 end
 
 def self.last_week()
@@ -122,6 +132,15 @@ def self.last_week()
   return result.compact
 end
 
+def self.last_week_total()
+  total = 0
+    for transaction in self.last_week()
+      total += transaction.value()
+    end
+    number = (total.to_f() / 100).round(2)
+    return "£#{number}"
+end
+
 def self.last_month()
   a_month_ago = Time.now() - (60*60*24*7*4)
   sql = "SELECT * FROM transactions ORDER BY time_stamp"
@@ -130,7 +149,14 @@ def self.last_month()
   return result.compact
 end
 
-
+def self.last_month_total()
+  total = 0
+    for transaction in self.last_month()
+      total += transaction.value()
+    end
+    number = (total.to_f() / 100).round(2)
+    return "£#{number}"
+end
 
 
 end

@@ -22,6 +22,13 @@ get '/transactions/oldest_first' do
 
 end
 
+get '/transactions/last_week' do
+  @transactions = Transaction.last_week()
+
+  erb ( :"transaction/last_week" )
+
+end
+
 
 
 get '/transactions/new' do

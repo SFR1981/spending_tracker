@@ -43,6 +43,17 @@ get '/merchants/:id/edit' do
   erb( :"merchant/edit" )
 
 end
+
+post '/merchants/:id/edit_image' do
+  @filename = params[:file][:filename]
+  file = params[:file][:tempfile]
+  File.open("./public/images/logos/#{@filename}", 'wb') do |image|
+    image.write(file.read)
+  end
+  @merchant = Merchant.find(params[:id].to_i)
+  erb( :"merchant/edit_image" )
+
+end
 #update
 post '/merchants/:id/' do
   @merchant = Merchant.new(params)

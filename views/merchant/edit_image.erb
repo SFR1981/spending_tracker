@@ -1,0 +1,13 @@
+<img src="/images/logos/<%= @filename %>" alt="image of <%=@filename.sub("jpeg","")%>">
+
+
+  <form method="post" action="/merchants/<%= @merchant.id %>/">
+  <label for="logo-select">Company Logo:</label>
+  <select id="logo-select" name="logo">
+  <option value="/images/logos/<%= @filename %> "> logo chosen </option>
+  </select>
+
+  <label for="name">Name:</label>
+  <input id="name" type ="text" name="name" required = "required" placeholder="<%= @merchant.name()  %>"/>
+  <input type="submit" value="Edit Merchant" />
+</form>

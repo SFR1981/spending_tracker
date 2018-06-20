@@ -1,25 +1,36 @@
 
-<% x = ["./images/logos/good journalism.png", "./images/logos/morrisons.png", "./images/logos/CDW.png", "./images/logos/Shield.png", "./images/logos/kfc.png", "./images/logos/Vapeshop.jpeg", "./images/logos/rising sun.png", "./images/logos/levis.png", "./images/logos/nike.png", "./images/logos/Heineken.png", "./images/logos/dominos.jpeg", "./images/logos/lidl.png", "./images/logos/duff.png", "./images/logos/tesco.png", "./images/logos/independent takeaway.png", "./images/logos/citylink.png", "./images/logos/oddbins.png", "./images/logos/pub.jpeg", "./images/logos/netflix.png", "./images/logos/apple.png", "./images/logos/bmw.jpeg", "./images/logos/aldi.png", "./images/logos/abstract.jpeg", "./images/logos/fanta.png", "./images/logos/independent trader.png", "./images/logos/utilities.png", "./images/logos/MasterCard.png", "./images/logos/playstation.png", "./images/logos/McDonald's.png", "./images/logos/amazon.png", "./images/logos/rolex.png"] %>
-
 <h1>edit</h1>
 
-<form method="post" action="/merchants/<%= @merchant.id %>/">
-  <label for="name">Name:</label>
-  <input id="name" type ="text" name="name" required = "required" value = "<%= @merchant.name %>"
 
-  <label for="logo-select">Company Logo:</label>
-  <select id="logo-select" name="logo">
-    <option value=" "> None </option>
-    <% x.each do |num| %>
-    <option value='<%= num %>'> <%=num.sub("./images/logos/","").chomp(".png").chomp(".jpeg")  %> </option>
-    <% end  %>
-
-
-
-  <form method= "post" action="/merchants/editimage" enctype="multipart/form-data">
+  <form method= "post" action="/merchants/<%=@merchant.id  %>/edit_image" enctype="multipart/form-data">
   <input type="file" name="file" accept="image/*">
   <input type="submit" value="upload logo">
   </form>
+
+
+<form method="post" action="/merchants/<%= @merchant.id %>/">
+  <label for="name">Name:</label>
+  <input id="name" type ="text" name="name" required = "required" value = "<%= @merchant.name %>">
+
+    <form method= "post" action="/merchants/edit_image" enctype="multipart/form-data">
+    <input type="file" name="file" accept="image/*">
+    <input type="submit" value="upload logo">
+    </form>
+
+    <p>or</p>
+
+  <label for="logo-select">Company Logo:</label>
+    <select id="logo-select" name="logo">
+      <datalist id="defaultURLs">
+        <option value="/images/logos/abstract.jpeg">default</option>
+        <option value="/images/logos/shield.png">shield</option>
+        <option value="/images/logos/pub.jpeg">pub</option>
+        <option value="/images/logos/amazon.png">amazon</option>
+        <option value="/images/logos/tesco.png">tesco</option>
+      </datalist>
+
+
+
 
 
 
