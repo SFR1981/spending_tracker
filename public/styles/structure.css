@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
 
 background-color: #EFFFE9; /* hsl(205, 51%, 72%); */
@@ -12,14 +16,34 @@ header {
 
   background-color: #2EC4B6;
   text-align: center;
+  vertical-align: middle;
+
+
+}
+
+header .spendid {
+
+
+  margin: 16px 0 16px 50px;
+  color:  #A593EO;
+  font-weight: 900;
+  font-family: "PT Serif";
+
+
 
 }
 
 
+.total {
+font-family: monospace;
+
+}
+
 img {
   position: relative;
   float: left;
-  width:  50%;
+  width:  50% ;
+  max-width: 20%
   height: 50%;
   background-position: 50% 50%;
   background-repeat:   no-repeat;
@@ -27,16 +51,7 @@ img {
 }
 
 
-h1 .spendid {
 
-
-
-}
-
-.total {
-font-family: monospace;
-
-}
 
 ul  {
 
