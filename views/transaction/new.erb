@@ -7,7 +7,7 @@ GO ON , THROW IT AWAY! What are you, a millonaire?
     <option value="<%= merchant.id  %>"> <%= merchant.name %> </option>
     <% end  %>
   </select>
-  <label for="tag-select">Select a Tag:</label>
+  <label for="tag-select">Select a Category:</label>
   <select id="tag-select" name="tag_id">
     <% for tag in @tags do  %>
     <option value="<%= tag.id  %>"> <%= tag.name %> </option>
@@ -19,7 +19,7 @@ GO ON , THROW IT AWAY! What are you, a millonaire?
   <input id="reference" type ="text" name="reference"/>
 <div class = hidden_time>
   <label for="Time">Time:</label>
-  <input id="time_stamp" step="any" name="time_stamp" required = "required" value = "<%= Time.now  %>" /></div> 
+  <input id="time_stamp" step="any" name="time_stamp" required = "required" value = "<%= Time.now  %>" /></div>
 
 
   <input type="submit" value="Transaction complete" />

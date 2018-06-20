@@ -1,20 +1,51 @@
 body {
 
-background-color: teal;
+background-color: #EFFFE9; /* hsl(205, 51%, 72%); */
+
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+
+  background-color: #2EC4B6;
+  text-align: center;
 
 }
 
 
-
- img {
-    position: relative;
-    float: left;
-    width:  100px;
-    height: 100px;
-    background-position: 50% 50%;
-    background-repeat:   no-repeat;
-    background-size:     cover;
+img {
+  position: relative;
+  float: left;
+  width:  50%;
+  height: 50%;
+  background-position: 50% 50%;
+  background-repeat:   no-repeat;
+  background-size:     cover;
 }
+
+
+h1 .spendid {
+
+
+
+}
+
+.total {
+font-family: monospace;
+
+}
+
+ul  {
+
+  list-style-type: none;
+
+
+
+}
+
 
 /*
 

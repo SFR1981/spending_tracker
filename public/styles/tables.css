@@ -1,0 +1,41 @@
+
+td a {
+
+background-color: hsl(205, 51%, 92%);
+border-radius: ;
+
+}
+
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+
+
+}
+
+td .image {
+
+
+}
+
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #4CAF50;
+  color: white;
+
+
+}
+
+.table_image {
+
+  background-color: hsl(68, 51%, 91%)
+
+
+
+
+
+}

@@ -23,14 +23,14 @@
   <tr>
     <td>
     <a href="/transactions/<%= transaction.id %>">
-  <img src="/images/logos/deleted.jpeg" alt="deleted" style="width:100%">
+  <img src="/images/logos/deleted.jpeg" alt="deleted" >
   no longer trading
 
   <% else  %>
   <tr>
     <td>
     <a href="/transactions/<%= transaction.id %>">
-  <img src="<%= Merchant.find(transaction.merchant_id).logo() %>" alt="<%= Merchant.find(transaction.merchant_id).name() %>" style="width:100%">
+  <img src="<%= Merchant.find(transaction.merchant_id).logo() %>" alt="<%= Merchant.find(transaction.merchant_id).name() %>" >
   <%= Merchant.find(transaction.merchant_id).name() %>
   <% end  %>
     </td>
