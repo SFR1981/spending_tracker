@@ -4,14 +4,14 @@
 <a href="/transactions/yesterday">view yesterday </a>
 <a href="/transactions/last_week">view last week </a>
 <a href="/transactions/last_month">view last month </a>
-<a href="/transactions/tags">view tags </a>
+<a href="/transactions/tags">view categories </a>
 
 
-<table>
+<table class="transaction">
   <tr>
     <th>Merchant</th>
     <th></th>
-    <th>Tag</th>
+    <th>Category</th>
     <th></th>
     <th>Amount</th>
     <th></th>
@@ -29,10 +29,10 @@
 
   <% else  %>
   <tr>
-    <td>
+    <td >
     <a href="/transactions/<%= transaction.id %>">
-  <img src="<%= Merchant.find(transaction.merchant_id).logo() %>" alt="<%= Merchant.find(transaction.merchant_id).name() %>" style="width:100%">
-  <%= Merchant.find(transaction.merchant_id).name() %>
+  <div class= "table_image"><img src="<%= Merchant.find(transaction.merchant_id).logo() %>" alt="<%= Merchant.find(transaction.merchant_id).name() %>">
+  <%= Merchant.find(transaction.merchant_id).name() %> </div>
   <% end  %>
     </td>
     <td>|</td>
