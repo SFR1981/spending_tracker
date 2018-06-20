@@ -22,12 +22,28 @@ get '/transactions/oldest_first' do
 
 end
 
+get '/transactions/yesterday' do
+  @transactions = Transaction.yesterday()
+
+  erb ( :"transaction/yesterday" )
+
+end
+
 get '/transactions/last_week' do
   @transactions = Transaction.last_week()
 
   erb ( :"transaction/last_week" )
 
 end
+
+
+get '/transactions/last_month' do
+  @transactions = Transaction.last_month()
+
+  erb ( :"transaction/last_month" )
+
+end
+
 
 
 

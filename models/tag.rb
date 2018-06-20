@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require_relative('./tag_stats')
 
 
 class Tag
@@ -93,6 +94,21 @@ def percentage_of_spending
 end
 
 
+def self.by_tag()
+tag_hash_array = []
+sql = "SELECT tag_id, sum(value) AS amount from transactions group by tag_id"
+values = SqlRunner.run(sql)
+@results = values.map { |tag_stats| TagStats.new( tag_stats ) }
+
+end
+
+end
+
+
+
+
+
+
 def safe_delete
   transactions = self.transactions()
   for transaction in transactions do
@@ -103,6 +119,6 @@ def safe_delete
 
 end
 
- 
+
 
 end

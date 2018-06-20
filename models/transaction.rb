@@ -2,6 +2,7 @@ require_relative('../db/sql_runner')
 require('time')
 
 
+
 class Transaction
   attr_reader :id
   attr_accessor :merchant_id, :tag_id, :value, :reference, :time_stamp
