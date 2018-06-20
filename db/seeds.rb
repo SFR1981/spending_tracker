@@ -22,6 +22,8 @@ merchant4 = Merchant.new({"id" => 4, "name" => "amazon", "logo" => "/images/logo
 merchant4.save()
 merchant5 = Merchant.new({"id" => 5, "name" => "McDonalds", "logo" => "/images/logos/McDonalds.png", "active" => true})
 merchant5.save()
+merchant6 = Merchant.new({"id" => 6, "name" => "Quick Adds", "logo" => "/images/logos/money.jpeg", "active" => true})
+merchant6.save
 #save
 
 tag1 = Tag.new({ "name" => "None"})

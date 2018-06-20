@@ -83,6 +83,8 @@ for transaction in self.transactions
 end
   return total_value
 end
+
+
 #
 
 def percentage_of_spending

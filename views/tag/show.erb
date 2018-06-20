@@ -1,5 +1,9 @@
-<h1><%= @tag.name %>
+<h2><%= @tag.name  %></h2>
 
+<p> <%= @tag.percentage_of_spending  %> % of your expenditure is on <%= @tag.name %>.
+<%if @tag.total_spend() > 2000  %>
+  So that's £ <%= @tag.total_spend().to_f / 100 %> gone, just like that  </p>
+<% end  %>
 <h5><a href="/tags/<%= @tag.id()%>/edit">edit</a></h5>
 
 

@@ -58,6 +58,11 @@ get '/transactions/new' do
   erb( :"transaction/new")
 end
 
+get 'transactions/quick' do
+  @merchant = Merchant.find_name('Quick Adds')
+  erb (:"transaction/quick")
+end
+
 
 post '/transactions' do
   params['value'] = MoneyHandler.check_decimal(params['value'])

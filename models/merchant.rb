@@ -76,6 +76,15 @@ def self.find(id)
 
 end
 
+def self.find_name(name)
+  sql = "SELECT * FROM merchants WHERE name = $1"
+  values = [name]
+  merchant = SqlRunner.run( sql, values )
+  result = Merchant.new( merchant.first )
+  return result
+
+end
+
 def transactions()
   sql = "SELECT transactions.* FROM transactions INNER JOIN merchants ON transactions.merchant_id = merchants.id WHERE merchants.id = $1"
   values= [@id]
