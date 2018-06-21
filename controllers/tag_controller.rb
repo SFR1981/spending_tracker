@@ -2,8 +2,6 @@ require( 'sinatra' )
 require( 'sinatra/contrib/all')
 require( 'pry-byebug')
 require_relative( '../models/tag.rb')
-require_relative( './emojis.rb')
-require 'emojis'
 also_reload('../models*')
 
 get '/tags' do
@@ -45,5 +43,5 @@ end
 post '/tags/:id/delete' do
   @tag = Tag.find(params[:id].to_i)
   @tag.safe_delete
-  redirect '/tags' #form posting to delete route
+  redirect '/tags' 
 end

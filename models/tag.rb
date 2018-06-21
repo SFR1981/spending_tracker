@@ -88,8 +88,8 @@ end
 #
 
 def percentage_of_spending
-  total = Transaction.total_spend().to_i
-  for_this_tag = self.total_spend().to_i
+  total = Transaction.total_spend().to_f
+  for_this_tag = self.total_spend().to_f
   percentage = ( for_this_tag  )/ total
   return percentage.round(2)
 
