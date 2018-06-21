@@ -5,13 +5,9 @@
 <table class="transaction">
   <tr>
     <th>Merchant</th>
-    <th></th>
     <th>Category</th>
-    <th></th>
     <th>Amount</th>
-    <th></th>
     <th>Reference</th>
-    <th></th>
     <th>time stamp</th>
   </tr>
   <% for transaction in @transactions %>
@@ -30,18 +26,13 @@
   <%= Merchant.find(transaction.merchant_id).name() %>
   <% end  %>
     </td>
-    <td>|</td>
     <% if transaction.tag_id.nil?   %>
     <td> no tag applied </td>
     <% else  %>
     <td><%= Tag.find(transaction.tag_id).name() %></td>
     <% end  %>
-    <td>|</td>
     <td><%= transaction.value_to_pounds %></td>
-    <td>|</td>
     <td><%= transaction.reference() %></a></td>
-    <td>
-    <td>|</td>
     <td><%= transaction.time_stamp() %></a></td>
     <td>
 

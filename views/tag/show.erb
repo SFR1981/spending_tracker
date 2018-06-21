@@ -1,6 +1,9 @@
 <h2><%= @tag.name  %></h2>
 
-<p> <%= @tag.percentage_of_spending  %> % of your expenditure is on <%= @tag.name %>.
+<p class="info"> <%= @tag.percentage_of_spending  %> % of your expenditure is on <%= @tag.name %>.
+  <% if @tag.name == "Alcohol" && @tag.total_spend() > 3500 %>
+  I guess you must have been thirsty!
+  <% end  %>
 <%if @tag.total_spend() > 2000  %>
   So that's £ <%= @tag.total_spend().to_f / 100 %> gone, just like that  </p>
 <% end  %>
@@ -21,12 +24,11 @@
 <table>
   <tr>
     <th>Merchant</th>
-    <th></th>
     <th>Tag</th>
-    <th></th>
     <th>Amount</th>
-    <th></th>
     <th>Reference</th>
+    <th>Time Stamp</th>
+
   </tr>
   <% for transaction in @transactions %>
   <tr>
@@ -43,12 +45,10 @@
   <%= Merchant.find(transaction.merchant_id).name() %>
   <% end %>
     </td>
-    <td>|</td>
     <td><%= @tag.name %></td>
-    <td>|</td>
     <td><%= transaction.value_to_pounds %></td>
-    <td>|</td>
     <td><%= transaction.reference() %></a></td>
+    <td><%= transaction.time_stamp() %></a></td>
     <td>
 
     <a href="/transactions/<%= transaction.id %>/edit">Edit</a>

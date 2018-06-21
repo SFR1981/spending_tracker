@@ -80,7 +80,7 @@ ul .transaction-options li a {
   display: block;
   padding: 16px;
   text-decoration: none;
-  
+
 }
 
 
@@ -99,11 +99,9 @@ img {
   position: relative;
   float: left;
   width:  50% ;
-  max-width: 20%
+  max-width: 30%;
   height: 30%;
-  background-position: 50% 50%;
-  background-repeat:   no-repeat;
-  background-size:     cover;
+
 }
 
 
@@ -127,7 +125,7 @@ ul li{
 .menu button {
   border: none;
   padding: 14px 28px;
-  font-size: 30px;
+  font-size: 3vw;
   cursor: pointer;
   display: inline-block;
   }
@@ -170,6 +168,15 @@ ul li{
 }
 .spend_main:hover {
   background: #E71D36;
+
+
+}
+
+
+.info {
+ font-family: monospace;
+ font-size: 2vw;
+ width: 50%
 
 
 }

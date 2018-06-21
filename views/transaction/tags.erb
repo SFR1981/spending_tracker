@@ -16,7 +16,7 @@
 
     </td>
     <td>£ <%= tag.amount().to_f / 100 %></td>
-    <td><%= Tag.find(tag.tag_id).percentage_of_spending%></td>
+    <td><%= Tag.find(tag.tag_id).percentage_of_spending%>%</td>
 
     <% end   %>
 

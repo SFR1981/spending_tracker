@@ -1,0 +1,19 @@
+form {
+  font-family: "PT Serif";
+  font-size: 2vw;
+
+
+}
+
+form option {
+height: 5vw;
+
+}
+
+.submit{
+width: 30vw;
+height: 5vw;
+font-size: 30vw;
+
+
+}

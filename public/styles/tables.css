@@ -3,10 +3,14 @@ table {
     border-collapse: collapse;
     width: 100%;
     font-family: monospace;
+
 }
 table td {
     border: 1px solid #ccc;
+    font-size: 2vw;
 }
+
+
 
 
 table .tag {
