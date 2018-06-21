@@ -47,14 +47,20 @@ tag7.save()
 tag8.save()
 
 transaction1 = Transaction.new({"id" => 1, "merchant_id" => merchant4.id, "tag_id" => tag1.id, "value" => "1299", "reference" => "train tickets", "time_stamp" => '2018-05-27 12:30:02'})
-transaction2 = Transaction.new({"id" => 2, "merchant_id" => merchant2.id, "tag_id" => tag2.id, "value" => "12301", "reference" => "train tickets", "time_stamp" => '2018-01-19 14:39:07'})
+transaction2 = Transaction.new({"id" => 2, "merchant_id" => merchant6.id, "tag_id" => tag2.id, "value" => "12301", "reference" => "beers and alcohol", "time_stamp" => '2018-01-19 14:39:07'})
 transaction3 = Transaction.new({"id" => 3, "merchant_id" => merchant1.id, "tag_id" => tag3.id, "value" => "7000", "reference" => "partying", "time_stamp" => "#{Time.now}"})
-transaction4 = Transaction.new({"id" => 3, "merchant_id" => merchant5.id, "tag_id" => tag4.id, "value" => "500", "reference" => "tidying", "time_stamp" => "2018-06-15 22:19:54"})
+transaction4 = Transaction.new({"id" => 4, "merchant_id" => merchant5.id, "tag_id" => tag4.id, "value" => "500", "reference" => "nugz", "time_stamp" => "2018-06-15 22:19:54"})
+transaction5 = Transaction.new({"id" => 5, "merchant_id" => merchant3.id, "tag_id" => tag4.id, "value" => "500", "reference" => "phone", "time_stamp" => "2018-06-15 22:19:54"})
+transaction6 = Transaction.new({"id" => 6, "merchant_id" => merchant3.id, "tag_id" => tag8.id, "value" => "500", "reference" => "laptop", "time_stamp" => "2018-06-15 22:19:54"})
+transaction7 = Transaction.new({"id" => 7, "merchant_id" => merchant3.id, "tag_id" => tag8.id, "value" => "500", "reference" => "new battery", "time_stamp" => "2018-06-15 22:19:54"})
 
 transaction1.save()
 transaction2.save()
 transaction3.save()
 transaction4.save()
+transaction5.save()
+transaction6.save()
+transaction7.save()
 
 binding.pry
 nil
