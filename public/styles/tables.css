@@ -1,3 +1,15 @@
+table {
+    table-layout: auto;
+    border-collapse: collapse;
+    width: 100%;
+    font-family: monospace;
+}
+table td {
+    border: 1px solid #ccc;
+}
+
+
+
 
 td a {
 
@@ -20,18 +32,8 @@ th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: #4CAF50;
-  color: white;
-
-
-}
-
-.table_image {
-
-  background-color: hsl(68, 51%, 91%)
-
-
-
+  background-color: #2EC4B6;
+  color: #A59;
 
 
 }

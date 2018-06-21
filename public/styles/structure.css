@@ -4,7 +4,8 @@
 
 body {
 
-background-color: #EFFFE9; /* hsl(205, 51%, 72%); */
+background: #EFFFE9;
+
 
 }
 
@@ -15,8 +16,7 @@ a {
 header {
 
   background-color: #2EC4B6;
-  text-align: center;
-  vertical-align: middle;
+
 
 
 }
@@ -24,14 +24,16 @@ header {
 header .spendid {
 
 
-  margin: 16px 0 16px 50px;
+
   color:  #A593EO;
   font-weight: 900;
   font-family: "PT Serif";
 
 
-
 }
+
+
+
 
 
 .total {
@@ -44,7 +46,7 @@ img {
   float: left;
   width:  50% ;
   max-width: 20%
-  height: 50%;
+  height: 30%;
   background-position: 50% 50%;
   background-repeat:   no-repeat;
   background-size:     cover;
@@ -62,9 +64,36 @@ ul  {
 }
 
 
-/*
 
-img {
- height: auto;
- width: 10%;
-} */
+.menu button {
+  border: none;
+  padding: 14px 28px;
+  font-size: 30px;
+  cursor: pointer;
+  display: inline-block;
+  }
+
+.color {
+  color: dodgerblue;
+  background-color: inherit;
+  }
+
+.color:hover {
+  background: #2EC4B6;
+  color: white;
+  }
+
+.spend {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+
+}
+.spend:hover {
+  background: #E71D36;
+
+
+}

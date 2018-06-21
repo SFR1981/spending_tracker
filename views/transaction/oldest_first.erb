@@ -1,10 +1,14 @@
 <h1>Transactions</h1>  <h2 class=total> Total money gone forever: £<%= Transaction.total_spend()  %></h2>
-<a href="/transactions">Order by newest first </a>
-<a href="/transactions/oldest_first">Order by oldest first </a>
-<a href="/transactions/yesterday">view yesterday </a>
-<a href="/transactions/last_week">view last week </a>
-<a href="/transactions/last_month">view last month </a>
-<a href="/transactions/tags">view categories </a>
+<ul class="transaction-options">
+  <li><button class="color"><a href="/transactions">Order by newest transaction first </a></button></li>
+  <li><button class="color"><a href="/transactions/oldest_first">Order by oldest transaction first </a></button></li>
+  <li><button class="color">
+  <a href="/transactions/yesterday">yesterday </a></button></li>
+  <li><button class="color"><a href="/transactions/last_week"> last week </a></button></li>
+  <li><button class="color"><a href="/transactions/last_month">last month </a></button></li>
+  <li><button class="color">
+  <a href="/transactions/tags">category breakdown </a></button></li>
+</ul>
 
 <table>
   <tr>
@@ -20,7 +24,7 @@
     <td>
     <a href="/transactions/<%= transaction.id %>">
   <img src="/images/logos/deleted.jpeg" alt="deleted" >
-  no longer trading
+  <p>no longer trading</p>
 
   <% else  %>
   <tr>
@@ -29,19 +33,15 @@
   <img src="<%= Merchant.find(transaction.merchant_id).logo() %>" alt="<%= Merchant.find(transaction.merchant_id).name() %>" >
   <%= Merchant.find(transaction.merchant_id).name() %>
   <% end  %>
-    </td>
-    <td>|</td>
+</td>
     <% if transaction.tag_id.nil?   %>
-    <td> no tag applied </td>
+    <td> no category applied </td>
     <% else  %>
     <td><%= Tag.find(transaction.tag_id).name() %></td>
     <% end  %>
-    <td>|</td>
     <td><%= transaction.value_to_pounds %></td>
-    <td>|</td>
     <td><%= transaction.reference() %></a></td>
-    <td>
-    <td>|</td>
+
     <td><%= transaction.time_stamp() %></a></td>
     <td>
 

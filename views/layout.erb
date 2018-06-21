@@ -11,9 +11,14 @@
 <link rel="stylesheet" type="text/css" href="/styles/forms.css">
 <link rel="stylesheet" type="text/css" href="/styles/structure.css">
 <link rel="stylesheet" type="text/css" href="/styles/tables.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|PT+Serif" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
+
 <header>
-<a href="/"><h1 class="spendid">Spendid </h1></a> <div> <a href="/transactions/new">Add transaction</a> </div> <div class = "total">Total spendid : £<%=Transaction.total_spend() %> </div>
+<a href="/"><h1 class="spendid">Spendid </h1></a> <div>
+  <button class="spend"><a href="/transactions/new">Add transaction</a></button> </div> <div class = "total">Total spendid : £<%=Transaction.total_spend() %> </div>
 
  </header>
 <body>
@@ -21,9 +26,9 @@
   <hr>
   <nav>
   <!--  links go here -->
-  <a href="/tags">categories</a>
-  <a href="/merchants">merchants</a>
-  <a href="/transactions">transactions</a>
+    <button class="color"><a href="/tags">categories</a></button>
+    <button class="color"><a href="/merchants">merchants</a></button>
+    <button class="color"><a href="/transactions">transactions</a></button>
 
 
 

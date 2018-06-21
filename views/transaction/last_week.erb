@@ -1,10 +1,15 @@
 <h1>Transactions</h1>  <h2 class=total> Last week : <%= Transaction.last_week_total()  %></h2>
-<a href="/transactions">Order by newest first </a>
-<a href="/transactions/oldest_first">Order by oldest first </a>
-<a href="/transactions/yesterday">view yesterday </a>
-<a href="/transactions/last_week">view last week </a>
-<a href="/transactions/last_month">view last month </a>
-<a href="/transactions/tags">view categories </a>
+<ul class="transaction-options">
+  <li><button class="color"><a href="/transactions">Order by newest transaction first </a></button></li>
+  <li><button class="color"><a href="/transactions/oldest_first">Order by oldest transaction first </a></button></li>
+  <li><button class="color">
+  <a href="/transactions/yesterday">yesterday </a></button></li>
+  <li><button class="color"><a href="/transactions/last_week"> last week </a></button></li>
+  <li><button class="color"><a href="/transactions/last_month">last month </a></button></li>
+  <li><button class="color">
+  <a href="/transactions/tags">category breakdown </a></button></li>
+</ul>
+
 
 <table class="transaction">
   <tr>
