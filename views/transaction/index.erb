@@ -38,7 +38,7 @@
     <% else  %>
     <td><%= Tag.find(transaction.tag_id).name() %></td>
     <% end  %>
-    <td><%= transaction.value_to_pounds %></td>
+    <td>£<%= transaction.value_to_pounds %></td>
     <td><%= transaction.reference() %></a></td>
     <td><%= transaction.time_stamp() %></a></td>
     <td>

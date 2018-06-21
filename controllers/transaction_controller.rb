@@ -36,7 +36,6 @@ end
 
 get '/transactions/tags' do
   @tags = Tag.by_tag()
-  @transactions = 
 
   erb ( :"transaction/tags")
 end
