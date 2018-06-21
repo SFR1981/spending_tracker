@@ -76,6 +76,7 @@ end
 
 #post
 post '/transactions/:id' do
+  params['value'] = MoneyHandler.check_decimal(params['value'])
   @transaction = Transaction.new(params)
   @transaction.update()
   erb( :"transaction/update" )
