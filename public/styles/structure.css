@@ -17,29 +17,71 @@ header {
 
   background-color: #2EC4B6;
 
-
-
 }
 
 .spendid {
 
 
   vertical-align: top;
-  color:  #A593EO;
+  color: #A593EO;
   font-weight: 900;
   font-family: "PT Serif";
+  margin-left: 0.25em;
+  text-decoration: underline;
+
+
+}
+
+.pretty {
+  color: #A593EO;
+  font-weight: 900;
+  font-family: "PT Serif";
+  text-decoration: underline;
   margin-left: 0.25em;
 
 
 }
 
+nav ul {
+  list-style-type: none;
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
 
 
+}
+
+nav ul li {
+ float: left;
+
+}
+
+nav ul li a {
+   display: block;
+   padding: 16px;
+   text-decoration: none;
+
+}
 
 
-header .total {
+.transaction-options {
+  list-style-type: none;
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+
+
+}
+
+
+.total {
 font-family: monospace;
+position: relative;
+width: 20%;
+display: inline-block;
 float: right;
+text-align: right;
+padding: 10px;
 
 }
 
@@ -72,7 +114,6 @@ ul li{
 }
 
 
-
 .menu button {
   border: none;
   padding: 14px 28px;
@@ -98,9 +139,26 @@ ul li{
   font-size: 16px;
   cursor: pointer;
   display: inline-block;
+  float: left;
 
 }
 .spend:hover {
+  background: #E71D36;
+
+
+}
+
+.spend_main {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+
+
+}
+.spend_main:hover {
   background: #E71D36;
 
 

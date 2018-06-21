@@ -1,10 +1,11 @@
-<h3>GO ON , THROW IT AWAY! What are you, a millonaire?</h3>
+<h3 class="pretty">GO ON , THROW IT AWAY! What are you, a millonaire?</h3>
 
 <form method="post" action="/transactions">
 <label for="merchant-select">Select a Merchant:</label>
 <select id="merchant-select" name="merchant_id">
     <% for merchant in @merchants do  %>
-    <option value="<%= merchant.id  %>"> <%= merchant.name %> </option>
+    <option value="<%=  Merchant.find_name("Quick Adds").id %>" > Quick Add </option>
+    <option value="<%= merchant.id  %>" > <%= merchant.name %> </option>
     <% end  %>
   </select>
   <label for="tag-select">Select a Category:</label>
@@ -22,5 +23,5 @@
   <input id="time_stamp" step="any" name="time_stamp" required = "required" value = "<%= Time.now  %>" /></div>
 
 
-  <input type="submit" value="Transaction complete" />
+  <button class="spend"><input type="submit" value="Bang! And the money is gone!" /></button>
 </form>
