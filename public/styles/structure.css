@@ -63,14 +63,24 @@ nav ul li a {
 
 }
 
-
-.transaction-options {
+ul .transaction-options {
   list-style-type: none;
-   margin: 0;
-   padding: 0;
-   overflow: hidden;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 
+}
 
+ul .transaction-options li {
+
+  float: left ;
+}
+
+ul .transaction-options li a {
+  display: block;
+  padding: 16px;
+  text-decoration: none;
+  
 }
 
 

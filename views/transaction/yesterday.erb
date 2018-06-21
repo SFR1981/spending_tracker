@@ -1,5 +1,6 @@
 <h1 class="pretty">Transactions</h1>  <h2 class=total> Yesterday : <%= Transaction.yesterday_total()  %></h2>
-<ul class="transaction-options">
+<nav class="transaction">
+<ul>
   <li><button class="color"><a href="/transactions">Order by newest transaction first </a></button></li>
   <li><button class="color"><a href="/transactions/oldest_first">Order by oldest transaction first </a></button></li>
   <li><button class="color">
@@ -8,7 +9,7 @@
   <li><button class="color"><a href="/transactions/last_month">last month </a></button></li>
   <li><button class="color">
   <a href="/transactions/tags">category breakdown </a></button></li>
-</ul>
+</ul></nav>
 
 <table class="transaction">
   <tr>
