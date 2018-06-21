@@ -128,8 +128,8 @@ end
 def self.last_week()
   a_week_ago = Time.now() - (60*60*24*7)
   sql = "SELECT * FROM transactions ORDER BY time_stamp"
-  oldest = SqlRunner.run(sql)
-  result = oldest.map { |transaction| Transaction.new( transaction )if Time.parse(transaction["time_stamp"]) > a_week_ago }
+  week = SqlRunner.run(sql)
+  result = week.map { |transaction| Transaction.new( transaction )if Time.parse(transaction["time_stamp"]) > a_week_ago }
   return result.compact
 end
 
@@ -142,11 +142,11 @@ def self.last_week_total()
     return "£#{number}"
 end
 
-def self.last_month()
+def self.last_month() # well , 28 days...
   a_month_ago = Time.now() - (60*60*24*7*4)
   sql = "SELECT * FROM transactions ORDER BY time_stamp"
-  oldest = SqlRunner.run(sql)
-  result = oldest.map { |transaction| Transaction.new( transaction )if Time.parse(transaction["time_stamp"]) > a_month_ago }
+  month = SqlRunner.run(sql)
+  result = month.map { |transaction| Transaction.new( transaction )if Time.parse(transaction["time_stamp"]) > a_month_ago }
   return result.compact
 end
 
