@@ -3,10 +3,10 @@
 <form method="post" action="/transactions">
 <label for="merchant-select">Select a Merchant:</label>
 <select id="merchant-select" name="merchant_id">
-    <% for merchant in @merchants do  %>
-    <option value="<%=  Merchant.find_name("Quick Adds").id %>" > Quick Add </option>
-    <option value="<%= merchant.id  %>" > <%= merchant.name %> </option>
-    <% end  %>
+  <option value="<%=  Merchant.find_name("Quick Adds").id %>" > Quick Add </option>
+  <% for merchant in @merchants do  %>
+  <option value="<%= merchant.id  %>" > <%= merchant.name %> </option>
+  <% end  %>
   </select>
   <label for="tag-select">Select a Category:</label>
   <select id="tag-select" name="tag_id">

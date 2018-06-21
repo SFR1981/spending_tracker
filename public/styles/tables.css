@@ -5,6 +5,15 @@ table {
     font-family: monospace;
 
 }
+
+
+
+table .merchant img {
+  width: 5vw;
+
+
+}
+
 table td {
     border: 1px solid #ccc;
     font-size: 2vw;

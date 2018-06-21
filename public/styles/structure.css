@@ -28,6 +28,7 @@ header {
   font-family: "PT Serif";
   margin-left: 0.25em;
   text-decoration: underline;
+  width: 8vw;
 
 
 }
@@ -92,6 +93,8 @@ display: inline-block;
 float: right;
 text-align: right;
 padding: 10px;
+background-color: #2EC4B6;
+
 
 }
 
@@ -100,7 +103,7 @@ img {
   float: left;
   width:  50% ;
   max-width: 30%;
-  height: 30%;
+  height: 50%;
 
 }
 
@@ -176,7 +179,7 @@ ul li{
 .info {
  font-family: monospace;
  font-size: 2vw;
- width: 50%
+ width: 50%;
 
 
 }

@@ -9,43 +9,34 @@ also_reload('../models*')
 
 get '/transactions' do
   @transactions = Transaction.order_by_newest()
-
-
-  erb ( :"transaction/index" )
+  erb( :"transaction/index" )
 end
 
 
 get '/transactions/oldest_first' do
   @transactions = Transaction.order_by_oldest()
-
-  erb ( :"transaction/oldest_first" )
-
+  erb( :"transaction/oldest_first" )
 end
 
 get '/transactions/yesterday' do
   @transactions = Transaction.yesterday()
-
-  erb ( :"transaction/yesterday" )
+  erb( :"transaction/yesterday" )
 
 end
 
 get '/transactions/last_week' do
   @transactions = Transaction.last_week()
-
-  erb ( :"transaction/last_week" )
-
+  erb( :"transaction/last_week" )
 end
-
 
 get '/transactions/last_month' do
   @transactions = Transaction.last_month()
-
   erb ( :"transaction/last_month" )
-
 end
 
 get '/transactions/tags' do
   @tags = Tag.by_tag()
+  @transactions = 
 
   erb ( :"transaction/tags")
 end

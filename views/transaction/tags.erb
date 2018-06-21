@@ -1,4 +1,4 @@
-<h1 class="pretty">Transactions by Category</h1>  <h2 class=total> Yesterday : <%= Transaction.total_spend()  %></h2>
+<h1 class="pretty">Transactions by Category</h1>  <h2 class=total> Total: £ <%= Transaction.total_spend()  %></h2>
 <%= erb(:"transaction/list")  %>
 
 <table class="tag">
