@@ -4,6 +4,8 @@
 
 
 <form method= "post" action="/merchants/image" enctype="multipart/form-data">
+<label for="name">Name:</label>
+<input id="name" type ="text" name="name" required = "required"/>
 <input type="file" name="file" accept="image/*">
 <input type="submit" value="upload logo">
 </form>
@@ -16,10 +18,7 @@
   <select id="logo-select" name="logo">
     <datalist id="defaultURLs">
       <option value="/images/logos/abstract.jpeg">default</option>
-      <option value="/images/logos/shield.png">shield</option>
-      <option value="/images/logos/pub.jpeg">pub</option>
-      <option value="/images/logos/amazon.png">amazon</option>
-      <option value="/images/logos/tesco.png">tesco</option>
+    
 </datalist>
   </select>
 

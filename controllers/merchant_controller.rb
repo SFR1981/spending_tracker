@@ -23,6 +23,8 @@ post '/merchants' do
 end
 
 post '/merchants/image' do
+  @name = params[:name]
+  # binding.pry
   @filename = params[:file][:filename]
   file = params[:file][:tempfile]
   File.open("./public/images/logos/#{@filename}", 'wb') do |image|

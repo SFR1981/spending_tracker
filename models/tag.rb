@@ -97,7 +97,7 @@ end
 
 
 def self.by_tag()
-tag_hash_array = []
+
 sql = "SELECT tag_id, sum(value) AS amount from transactions group by tag_id"
 values = SqlRunner.run(sql)
 @results = values.map { |tag_stats| TagStats.new( tag_stats ) }

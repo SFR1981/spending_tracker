@@ -12,7 +12,7 @@ require('pry')
  Merchant.delete_all()
 
 #create new merchants
-merchant1 = Merchant.new({"id" => 1, "name" => "CDW", "logo" => "/images/logos/CDW.png", "active" => true})
+merchant1 = Merchant.new({"id" => 1, "name" => "CDW", "logo" => "/images/logos/pub.jpeg", "active" => true})
 merchant1.save()
 merchant2 = Merchant.new({"id" => 2, "name" => "S.h.i.e.l.d", "logo" => "/images/logos/shield.png", "active" => true})
 merchant2.save()
