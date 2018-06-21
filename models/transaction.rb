@@ -28,7 +28,7 @@ def save()
 end
 
 def value_to_pounds()
-  return "£#{@value / 100.0}"
+  return "#{@value / 100.0}"
 end
 
 def delete()
