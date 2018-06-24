@@ -9,34 +9,38 @@ also_reload('../models*')
 
 get '/transactions' do
   @transactions = Transaction.order_by_newest()
+  @message = "Total money you'll never see again: #{Transaction.total_spend()}"
   erb( :"transaction/index" )
 end
 
 
 get '/transactions/oldest_first' do
   @transactions = Transaction.order_by_oldest()
-  erb( :"transaction/oldest_first" )
+  @message = "Total money gone forever: #{Transaction.total_spend()}"
+  erb( :"transaction/index" )
 end
 
 get '/transactions/yesterday' do
   @transactions = Transaction.yesterday()
-  erb( :"transaction/yesterday" )
+  @message = "Yesterday you were #{Transaction.yesterday_total()} richer"
+  erb( :"transaction/index" )
 
 end
 
 get '/transactions/last_week' do
   @transactions = Transaction.last_week()
-  erb( :"transaction/last_week" )
+  @message = "Last week you racked up a spendtastic: #{Transaction.last_week_total()}"
+  erb( :"transaction/index" )
 end
 
 get '/transactions/last_month' do
   @transactions = Transaction.last_month()
-  erb ( :"transaction/last_month" )
+  @message = "Last month cost you #{Transaction.last_month_total}"
+  erb ( :"transaction/index" )
 end
 
 get '/transactions/tags' do
   @tags = Tag.by_tag()
-
   erb ( :"transaction/tags")
 end
 
@@ -48,10 +52,6 @@ get '/transactions/new' do
   erb( :"transaction/new")
 end
 
-get 'transactions/quick' do
-  @merchant = Merchant.find_name('Quick Adds')
-  erb (:"transaction/quick")
-end
 
 
 post '/transactions' do

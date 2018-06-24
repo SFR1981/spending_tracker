@@ -4,7 +4,6 @@ class MoneyHandler
 
 
 def self.check_decimal(string)
-  # value = "99.99"
   if string.include?(".")
     string = string.to_f
     string = string * 100

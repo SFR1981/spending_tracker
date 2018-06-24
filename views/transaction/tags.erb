@@ -8,15 +8,24 @@
     <th>%</th>
     </tr>
   <% for tag in @tags %>
-
   <tr>
     <td>
+    <% if tag.tag_id.nil?  %>
+    Deleted tag
+    <% else  %>
     <a href="/tags/<%= tag.tag_id %>">
   <%= Tag.find(tag.tag_id).name  %>
+  <% end  %>
 
     </td>
     <td>£ <%= tag.amount().to_f / 100 %></td>
-    <td><%= Tag.find(tag.tag_id).percentage_of_spending%>%</td>
+    <td>
+      <% if tag.tag_id.nil?  %>
+      <%= Tag.percentage_of_spending__deleted %>%
+      <% else  %>
+    <%= Tag.find(tag.tag_id).percentage_of_spending%>%
+    <% end  %>
+  </td>
 
     <% end   %>
 

@@ -95,6 +95,22 @@ def percentage_of_spending
 
 end
 
+def self.percentage_of_spending__deleted
+  total = Transaction.total_spend().to_f
+  tagless_total = 0
+  transactions = Transaction.all()
+  for transaction in transactions
+    if transaction.tag_id.nil?
+      tagless_total += transaction.value()
+    end
+  end
+  for_all_deleted_tags = tagless_total.to_f
+  percentage = ( for_all_deleted_tags )/ total
+  return percentage.round(2)
+
+
+end
+
 
 def self.by_tag()
 

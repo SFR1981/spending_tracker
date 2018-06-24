@@ -23,7 +23,9 @@ no longer trading
 <form method="post" action="/transactions/<%=@transaction.id()%>">
 <label for="merchant-select">Edit merchant:</label>
 <select id="merchant-select" name="merchant_id">
-  <option value= "<%= @transaction.merchant_id  %>" selected> <%= Merchant.find(@transaction.merchant_id).name()%> </option>
+  <% if @transaction.merchant_id.nil? == false  %>
+<option value= "<%= @transaction.merchant_id  %>" selected> <%= Merchant.find(@transaction.merchant_id).name()%> </option>
+  <%end  %>
   <% for merchant in @merchants do  %>
   <option value="<%= merchant.id  %>" > <%= merchant.name %> </option>
     <% end  %>
@@ -31,7 +33,9 @@ no longer trading
 
   <label for="tag-select">Edit tag:</label>
   <select id="tag-select" name="tag_id">
+      <% if @transaction.tag_id.nil? == false  %>
       <option value= "<%= @transaction.tag_id  %>" selected> <%=Tag.find(@transaction.tag_id).name()%> </option>
+      <% end  %>
     <% for tag in @tags do  %>
      <option value="<%= tag.id  %>" >  <%= tag.name %> </option>
     <% end  %>
